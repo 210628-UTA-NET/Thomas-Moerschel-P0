@@ -1,0 +1,16 @@
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\bin\Debug\net5.0\Thomas-Moerschel-P0.exe
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\bin\Debug\net5.0\Thomas-Moerschel-P0.deps.json
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\bin\Debug\net5.0\Thomas-Moerschel-P0.runtimeconfig.json
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\bin\Debug\net5.0\Thomas-Moerschel-P0.runtimeconfig.dev.json
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\bin\Debug\net5.0\Thomas-Moerschel-P0.dll
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\bin\Debug\net5.0\ref\Thomas-Moerschel-P0.dll
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\bin\Debug\net5.0\Thomas-Moerschel-P0.pdb
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\obj\Debug\net5.0\Thomas-Moerschel-P0.csproj.AssemblyReference.cache
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\obj\Debug\net5.0\Thomas-Moerschel-P0.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\obj\Debug\net5.0\Thomas-Moerschel-P0.AssemblyInfoInputs.cache
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\obj\Debug\net5.0\Thomas-Moerschel-P0.AssemblyInfo.cs
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\obj\Debug\net5.0\Thomas-Moerschel-P0.csproj.CoreCompileInputs.cache
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\obj\Debug\net5.0\Thomas-Moerschel-P0.dll
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\obj\Debug\net5.0\ref\Thomas-Moerschel-P0.dll
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\obj\Debug\net5.0\Thomas-Moerschel-P0.pdb
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\obj\Debug\net5.0\Thomas-Moerschel-P0.genruntimeconfig.cache

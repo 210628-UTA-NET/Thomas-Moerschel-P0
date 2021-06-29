@@ -4,10 +4,10 @@ namespace StoreApp
 {
     public class Products
     {
-        protected string Name;
-        protected string Price;
-        protected string Description;
-        protected string Category;
+        protected string Name {get; set; }
+        protected string Price {get; set; }
+        protected string Description {get; set; }
+        protected string Category {get; set; }
 
     }
 }

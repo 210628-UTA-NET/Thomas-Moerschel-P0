@@ -4,15 +4,15 @@ namespace StoreApp
 {
     class Customer
     {
-        protected string Name;
-        protected string Address;
-        protected string Email;
-        protected string [] ListofOrders;
+        protected string Name {get; set; }
+        protected string Address {get; set; }
+        protected string Email {get; set; }
+        protected string [] ListofOrders {get; set; }
 
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello World! now");
         }
     }
 }

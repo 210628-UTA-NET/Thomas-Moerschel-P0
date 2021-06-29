@@ -4,8 +4,8 @@ namespace StoreApp
 {
     public class Orders
     {
-        protected string [] OrderLineItems;
-        protected string Location;
-        protected double Price;
+        protected string [] OrderLineItems {get; set; }
+        protected string Location {get; set; }
+        protected double Price {get; set; }
     }
 }

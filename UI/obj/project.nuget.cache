@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VlbU/ihjq/CZekvj4Oys7Yba5smNyO67jv2QK12oUKkituLIlBHKfF1hSLj+YZvc39VFOAGAkIYl90q5oK1vxw==",
+  "dgSpecHash": "boeur4boFGTqZOw1jvSyreSFTHTW6N1Ygvf5pTU8gQH/Pn2Jl567toDiVRD1gVlJXg1hn7Y3FBp3rDbtewvzqw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\UI\\UI.csproj",
+  "projectFilePath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\ui\\UI.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -13,21 +13,29 @@ namespace StoreApp
             Console.WriteLine("[2] Exit");
 
         }
-       
-        public string UserInput()
-        {
-            string userInput = Console.ReadLine();
 
-            switch (userInput)
+        string ICustomers.UserInput()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UserInput
+        {
+            get
             {
-                case "0":
-                    return "anotherCustomer";
-                case "1":
-                    return "customerList";
-                case "2":
-                    return "Exit";
-                default:
-                    return "Improper Input";
+                string userInput = Console.ReadLine();
+
+                switch (userInput)
+                {
+                    case "0":
+                        return "anotherCustomer";
+                    case "1":
+                        return "customerList";
+                    case "2":
+                        return "Exit";
+                    default:
+                        return "Improper Input";
+                }
             }
         }
     }

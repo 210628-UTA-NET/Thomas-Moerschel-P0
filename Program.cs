@@ -8,7 +8,7 @@ namespace StoreApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World! Welcome to the training project where we will get your information.");
+            Console.WriteLine("");
 
             ICustomers UI = new MainMenu();
             bool repeat = true;
@@ -28,19 +28,26 @@ namespace StoreApp
                     case "MainMenu":
                         break;
                     case "anotherCustomer":
-                        Console.WriteLine("this worked");
                         Console.WriteLine("Please input name:");
-                        string name = Console.ReadLine();
+                        string _name = Console.ReadLine();
                         Console.WriteLine("Please input address:");
-                        string address = Console.ReadLine();
+                        string _address = Console.ReadLine();
                         Console.WriteLine("Please input email:");
-                        string email = Console.ReadLine();
+                        string _email = Console.ReadLine();
                         
-                        CustomerList.Add(new Customer(name, address, email));
-                        Console.WriteLine("Success" + CustomerList.Count);
+                        CustomerList.Add(new Customer{Name = _name, Address = _address, Email = _email});
+                        break;
+                    case "customerList":
+                        int count=1;
+                        foreach (Customer person in CustomerList)
+                        {
+                            Console.WriteLine("Customer Number: " + count);
+                            Console.WriteLine($"Name: {person.Name} \nAddress: {person.Address} \nEmail:  {person.Email}");
+                            Console.WriteLine("______________________");
+                            count++;
+                        }
                         break;
                     case "Exit":
-                        Console.WriteLine("exit worked why arent the others");
                         repeat = false;
                         break;
                     default:

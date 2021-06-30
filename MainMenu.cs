@@ -9,7 +9,8 @@ namespace StoreApp
         {
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("[0] Add another customer");
-            Console.WriteLine("[1] Exit");
+            Console.WriteLine("[1] List all Customers");
+            Console.WriteLine("[2] Exit");
 
         }
        
@@ -22,6 +23,8 @@ namespace StoreApp
                 case "0":
                     return "anotherCustomer";
                 case "1":
+                    return "customerList";
+                case "2":
                     return "Exit";
                 default:
                     return "Improper Input";

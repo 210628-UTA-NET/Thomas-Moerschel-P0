@@ -8,7 +8,7 @@ namespace StoreApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("");
+            Console.WriteLine();
 
             ICustomers UI = new MainMenu();
             bool repeat = true;
@@ -21,7 +21,6 @@ namespace StoreApp
                 
                 UI.Menu();
                 currentSelection = UI.UserInput();
-                Console.WriteLine(currentSelection);
 
                 switch (currentSelection)
                 {

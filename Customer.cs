@@ -4,15 +4,21 @@ namespace StoreApp
 {
     class Customer
     {
-        protected string Name {get; set; }
-        protected string Address {get; set; }
-        protected string Email {get; set; }
-        protected string [] ListofOrders {get; set; }
+        string name;
+        string address;
+        string email;
 
-        static void Main(string[] args)
-        {
-
-            Console.WriteLine("Hello World! now change");
+        
+        public Customer(string name, string address, string email){
+            this.name = name;
+            this.address = address;
+            this.email = email;
         }
-    }
+        public string Name {get; set; }
+        public string Address {get; set; } 
+        public string Email {get; set; }
+        public object [] ListofOrders {get; set; }
+
+        }
+  
 }

@@ -2,7 +2,7 @@
 
 namespace StoreApp
 {
-    class Customer
+    public class Customer
     {
 
         public string Name {get; set; }

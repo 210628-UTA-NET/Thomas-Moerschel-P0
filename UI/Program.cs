@@ -20,7 +20,8 @@ namespace StoreApp
 
                 
                 UI.Menu();
-                currentSelection = UI.UserInput;
+                currentSelection = UI.UserInput();
+
 
                 switch (currentSelection)
                 {

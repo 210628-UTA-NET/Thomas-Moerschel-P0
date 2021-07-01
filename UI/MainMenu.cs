@@ -14,15 +14,11 @@ namespace StoreApp
 
         }
 
-        string ICustomers.UserInput()
-        {
-            throw new NotImplementedException();
-        }
+       
 
-        public string UserInput
+        public string UserInput ()
         {
-            get
-            {
+            
                 string userInput = Console.ReadLine();
 
                 switch (userInput)
@@ -36,7 +32,7 @@ namespace StoreApp
                     default:
                         return "Improper Input";
                 }
-            }
+            
         }
     }
 }

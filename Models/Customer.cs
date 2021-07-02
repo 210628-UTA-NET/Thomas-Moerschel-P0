@@ -10,7 +10,7 @@ namespace StoreApp
         public object [] ListofOrders {get; set; }
 
         
-
+        //overrides default string function allowing you to output object parameters:: otherwise you receive "namespace.class"
 
         public override string ToString()
         {

@@ -18,9 +18,9 @@ namespace StoreApp
 
             foreach (Customer cust in customers)
             {
-                Console.WriteLine("===================");
+                Console.WriteLine("-------------------");
                 Console.WriteLine(cust);
-                Console.WriteLine("===================");
+                Console.WriteLine("-------------------");
             }
             Console.WriteLine("[0] Go Back");
             

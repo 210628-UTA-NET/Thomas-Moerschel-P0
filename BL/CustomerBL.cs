@@ -10,6 +10,12 @@ namespace StoreApp
         public CustomerBL(IRepository p_repo){
             _repo = p_repo;
         }
+
+        public Customer AddCustomer(Customer p_customer)
+        {
+            return _repo.AddCustomer(p_customer);
+        }
+
         public List<Customer> GetAllCustomers()
         {
             return _repo.GetAllCustomers();

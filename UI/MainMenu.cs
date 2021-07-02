@@ -2,21 +2,21 @@ using System;
 
 namespace StoreApp
 {
-    public class MainMenu : ICustomers
+    public class MainMenu : IMenu
     {
 
         public void Menu()
         {
+            Console.WriteLine("Welcome to the Main Menu!");
             Console.WriteLine("What would you like to do?");
-            Console.WriteLine("[0] Add another customer");
-            Console.WriteLine("[1] List all Customers");
-            Console.WriteLine("[2] Exit");
+            Console.WriteLine("[1] Go to Customer Menu");
+            Console.WriteLine("[0] Exit");
 
         }
 
        
 
-        public string UserInput ()
+        public MenuType UserInput ()
         {
             
                 string userInput = Console.ReadLine();
@@ -24,13 +24,14 @@ namespace StoreApp
                 switch (userInput)
                 {
                     case "0":
-                        return "anotherCustomer";
+                        return MenuType.Exit;
                     case "1":
-                        return "customerList";
-                    case "2":
-                        return "Exit";
+                        return MenuType.CustomerMenu;
                     default:
-                        return "Improper Input";
+                        Console.WriteLine("Input was not correct");
+                        Console.WriteLine("Please press ENTER to continue");
+                        Console.ReadLine();
+                        return MenuType.MainMenu;
                 }
             
         }

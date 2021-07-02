@@ -17,3 +17,7 @@ C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\ui\obj
 C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\ui\obj\Debug\net5.0\ref\UI.dll
 C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\ui\obj\Debug\net5.0\UI.pdb
 C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\ui\obj\Debug\net5.0\UI.genruntimeconfig.cache
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\ui\bin\Debug\net5.0\BL.dll
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\ui\bin\Debug\net5.0\DL.dll
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\ui\bin\Debug\net5.0\BL.pdb
+C:\Users\Electric_Recon\source\repos\Revature\Core C#\Thomas-Moerschel-P0\ui\bin\Debug\net5.0\DL.pdb

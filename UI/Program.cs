@@ -8,53 +8,40 @@ namespace StoreApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine();
-
-            ICustomers UI = new MainMenu();
+            IMenu custMenu = new MainMenu();
             bool repeat = true;
-            string currentSelection = "MainMenu";
+            MenuType currentMenu = MenuType.MainMenu;
+            IFactory menuFactory = new MenuFactory();
 
-            List<Customer> CustomerList = new List<Customer>();
+            while (repeat)
+            {
+                Console.Clear();
+                custMenu.Menu();
+                currentMenu = custMenu.UserInput();
 
-            while (repeat){
-
-                
-                UI.Menu();
-                currentSelection = UI.UserInput();
-
-
-                switch (currentSelection)
+                switch (currentMenu)
                 {
-                    case "MainMenu":
+                    case MenuType.MainMenu:
+                        custMenu = menuFactory.GetMenu(MenuType.MainMenu);
                         break;
-                    case "anotherCustomer":
-                        Console.WriteLine("Please input name:");
-                        string _name = Console.ReadLine();
-                        Console.WriteLine("Please input address:");
-                        string _address = Console.ReadLine();
-                        Console.WriteLine("Please input email:");
-                        string _email = Console.ReadLine();
-                        
-                        CustomerList.Add(new Customer{Name = _name, Address = _address, Email = _email});
+                    case MenuType.CustomerMenu:
+                        custMenu = menuFactory.GetMenu(MenuType.CustomerMenu);
                         break;
-                    case "customerList":
-                        int count=1;
-                        foreach (Customer person in CustomerList)
-                        {
-                            Console.WriteLine("Customer Number: " + count);
-                            Console.WriteLine($"Name: {person.Name} \nAddress: {person.Address} \nEmail:  {person.Email}");
-                            Console.WriteLine("______________________");
-                            count++;
-                        }
+                    case MenuType.ShowCustomerMenu:
+                        custMenu = menuFactory.GetMenu(MenuType.ShowCustomerMenu);
                         break;
-                    case "Exit":
+                    case MenuType.AddCustomerMenu:
+                        custMenu = menuFactory.GetMenu(MenuType.AddCustomerMenu);
+                        break;
+                    case MenuType.Exit:
                         repeat = false;
                         break;
                     default:
-                        Console.WriteLine("Improper Input");
+                        Console.WriteLine("Cannot process Input... Please Try again.");
                         break;
                 }
             }
+        
         }
     }
 

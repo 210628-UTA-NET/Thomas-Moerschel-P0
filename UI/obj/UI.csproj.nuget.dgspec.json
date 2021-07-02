@@ -4,6 +4,131 @@
     "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\ui\\UI.csproj": {}
   },
   "projects": {
+    "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\BL\\BL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\BL\\BL.csproj",
+        "projectName": "BL",
+        "projectPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\BL\\BL.csproj",
+        "packagesPath": "C:\\Users\\Electric_Recon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\BL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Electric_Recon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\DL\\DL.csproj": {
+                "projectPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\DL\\DL.csproj"
+              },
+              "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\Models\\Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\DL\\DL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\DL\\DL.csproj",
+        "projectName": "DL",
+        "projectPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\DL\\DL.csproj",
+        "packagesPath": "C:\\Users\\Electric_Recon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\DL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Electric_Recon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\Models\\Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -88,6 +213,12 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\BL\\BL.csproj": {
+                "projectPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\BL\\BL.csproj"
+              },
+              "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\DL\\DL.csproj": {
+                "projectPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\DL\\DL.csproj"
+              },
               "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\Models\\Models.csproj": {
                 "projectPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\Models\\Models.csproj"
               }

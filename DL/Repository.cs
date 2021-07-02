@@ -12,7 +12,12 @@ namespace StoreApp
         
         public Customer AddCustomer(Customer p_customer)
         {
-            throw new NotImplementedException();
+            List<Customer> listOfCustomers = this.GetAllCustomers();
+            listOfCustomers.Add(p_customer);
+
+            _jsonString = JsonSerializer.Serialize(listOfCustomers, new JsonSerializerOptions{WriteIndented = true});
+            File.WriteAllText(_filePath, _jsonString);
+            return p_customer;
         }
 
         public List<Customer> GetAllCustomers()
@@ -25,7 +30,7 @@ namespace StoreApp
             {
                 throw new Exception ("File path is invalid");
             }
-
+                //This will return a list of Customer from the jsonString that it came from
             return JsonSerializer.Deserialize<List<Customer>>(_jsonString);
         }
 

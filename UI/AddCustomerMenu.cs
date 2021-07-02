@@ -12,9 +12,9 @@ namespace StoreApp
         }
         public void Menu()
         {
-            Console.WriteLine("[4] Name" + _newCustomer.Name);
-            Console.WriteLine("[3] Address"+ _newCustomer.Address);
-            Console.WriteLine("[2] Email"+_newCustomer.Email);
+            Console.WriteLine("[4] Name: " + _newCustomer.Name);
+            Console.WriteLine("[3] Address: "+ _newCustomer.Address);
+            Console.WriteLine("[2] Email: "+_newCustomer.Email);
             Console.WriteLine("[1] Add Customer");
             Console.WriteLine("[0] Go Back");
         }
@@ -33,7 +33,7 @@ namespace StoreApp
                     return MenuType.CustomerMenu;
                 case "2":
                     _newCustomer.Email = Console.ReadLine();
-                    return MenuType.CustomerMenu;
+                    return MenuType.AddCustomerMenu;
                 case "3":
                     _newCustomer.Address = Console.ReadLine();
                     return MenuType.AddCustomerMenu;

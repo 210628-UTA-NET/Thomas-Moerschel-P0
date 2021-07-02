@@ -20,6 +20,7 @@ namespace StoreApp
             {
                 Console.WriteLine("===================");
                 Console.WriteLine(cust);
+                Console.WriteLine("===================");
             }
             Console.WriteLine("[0] Go Back");
             

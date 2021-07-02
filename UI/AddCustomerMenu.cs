@@ -30,14 +30,20 @@ namespace StoreApp
                     return MenuType.CustomerMenu;
                 case "1":
                     _customerBL.AddCustomer(_newCustomer);
+                    _newCustomer.Name = "";
+                    _newCustomer.Address = "";
+                    _newCustomer.Email = "";
                     return MenuType.CustomerMenu;
                 case "2":
+                    Console.WriteLine("Customer Email:");
                     _newCustomer.Email = Console.ReadLine();
                     return MenuType.AddCustomerMenu;
                 case "3":
+                    Console.WriteLine("Customer Address:");
                     _newCustomer.Address = Console.ReadLine();
                     return MenuType.AddCustomerMenu;
                 case "4":
+                    Console.WriteLine("Customer Name:");
                     _newCustomer.Name = Console.ReadLine();
                     return MenuType.AddCustomerMenu;
                 default:

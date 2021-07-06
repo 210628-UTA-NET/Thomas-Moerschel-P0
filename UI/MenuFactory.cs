@@ -22,6 +22,14 @@ namespace StoreApp
                     return new AddCustomerMenu(new CustomerBL(new Repository()));
                 case MenuType.SearchCustomerMenu:
                     return new SearchCustomerMenu(new CustomerBL(new Repository()));
+                case MenuType.StoreFrontMenu:
+                    return new StoreFrontMenu(); //needs a BL and DL
+                case MenuType.StoreFrontInventoryMenu:
+                    return new StoreFrontInventoryMenu();
+                case MenuType.FindStoreFrontMenu:
+                    return new StoreFrontInventoryMenu();
+                case MenuType.OrderMenu:
+                    return new OrderMenu();
                 default:
                     return null;
             }

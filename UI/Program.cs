@@ -55,6 +55,18 @@ namespace StoreApp
                     case MenuType.SearchCustomerMenu:
                         custMenu = menuFactory.GetMenu(MenuType.SearchCustomerMenu);
                         break;
+                    case MenuType.StoreFrontMenu:
+                        custMenu = menuFactory.GetMenu(MenuType.StoreFrontMenu);
+                        break;
+                    case MenuType.FindStoreFrontMenu:
+                        custMenu = menuFactory.GetMenu(MenuType.FindStoreFrontMenu);
+                        break;
+                    case MenuType.StoreFrontInventoryMenu:
+                        custMenu = menuFactory.GetMenu(MenuType.StoreFrontInventoryMenu);
+                        break;
+                    case MenuType.OrderMenu:
+                        custMenu = menuFactory.GetMenu(MenuType.OrderMenu);
+                        break;
                     case MenuType.Exit:
                         //ends condition of switch statement
                         Console.WriteLine("Thank you for using the store application!");

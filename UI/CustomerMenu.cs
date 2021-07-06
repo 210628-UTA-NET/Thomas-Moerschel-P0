@@ -9,6 +9,7 @@ namespace StoreApp
         {
             Console.WriteLine("Welcome to the Customer Menu!");
             Console.WriteLine("What would you like to do?");
+            Console.WriteLine("[4] View a Customer's Order History");
             Console.WriteLine("[3] Add a Customer");
             Console.WriteLine("[2] Search for a Customer");
             Console.WriteLine("[1] Retrieve a List of Admitted Customers");

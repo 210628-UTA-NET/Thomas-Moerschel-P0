@@ -9,6 +9,10 @@ namespace StoreApp
         ShowCustomerMenu,
         AddCustomerMenu,
         SearchCustomerMenu,
+        OrderMenu,
+        StoreFrontMenu,
+        FindStoreFrontMenu,
+        StoreFrontInventoryMenu,
         Exit
     }
     

@@ -8,6 +8,7 @@ namespace StoreApp
         CustomerMenu,
         ShowCustomerMenu,
         AddCustomerMenu,
+        SearchCustomerMenu,
         Exit
     }
     

@@ -1,62 +1,14 @@
 [
   {
     "Name": "Thomas Moerschel",
-    "Address": "11529 Stonecreek Cir.",
+    "Address": "11529 StoneCreek Cir",
     "Email": "tj.moerschel@gmail.com",
     "ListofOrders": null
   },
   {
-    "Name": "James Marshall",
-    "Address": "James\u0027 Address",
-    "Email": "James\u0027 Email",
-    "ListofOrders": null
-  },
-  {
-    "Name": "Finley Jarvis",
-    "Address": "Finley\u0027s Address",
-    "Email": "Finley\u0027s email",
-    "ListofOrders": null
-  },
-  {
-    "Name": "James",
-    "Address": "James Address",
-    "Email": "James Email",
-    "ListofOrders": null
-  },
-  {
-    "Name": "Heather Moerschel",
-    "Address": "11529 StoneCreek Cir.",
-    "Email": "moerschel1974@yahoo.com",
-    "ListofOrders": null
-  },
-  {
-    "Name": "Placeholder Name",
-    "Address": "PlaceHolder Address",
-    "Email": "PlaceHolder Email",
-    "ListofOrders": null
-  },
-  {
-    "Name": "aklsdjf",
-    "Address": "adklfjals",
-    "Email": "asldkfjasdl",
-    "ListofOrders": null
-  },
-  {
-    "Name": "Thomas",
-    "Address": "Thomas Address",
-    "Email": "Thomas Email",
-    "ListofOrders": null
-  },
-  {
-    "Name": "Jeremy Boring",
-    "Address": "Daily Wire Address",
-    "Email": "DailyWire@hotmail.com",
-    "ListofOrders": null
-  },
-  {
-    "Name": "Xander",
-    "Address": "Xanders Address",
-    "Email": "Xanders Email",
+    "Name": "Jack Moerschel",
+    "Address": "11529 StoneCreek Cir",
+    "Email": "ja.moerschel@gmail.com",
     "ListofOrders": null
   }
 ]

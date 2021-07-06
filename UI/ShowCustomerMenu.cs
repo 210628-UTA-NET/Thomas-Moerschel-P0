@@ -8,9 +8,9 @@ namespace StoreApp
         //creates _customerBl of type interface: ICustomerBL
         private ICustomerBL _customerBL;
         //Called within MenuFactory and passes in BL and Repo as parameters: new ShowCustomerMenu(new CustomerBL(new Repository()))
-        public ShowCustomerMenu(ICustomerBL p_customer)
+        public ShowCustomerMenu(ICustomerBL p_customerBL)
         {
-            _customerBL = p_customer;
+            _customerBL = p_customerBL;
         }
         public void Menu()
         {

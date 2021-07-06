@@ -9,7 +9,8 @@ namespace StoreApp
         {
             Console.WriteLine("Welcome to the Customer Menu!");
             Console.WriteLine("What would you like to do?");
-            Console.WriteLine("[2] Add a Customer");
+            Console.WriteLine("[3] Add a Customer");
+            Console.WriteLine("[2] Search for a Customer");
             Console.WriteLine("[1] Retrieve a List of Admitted Customers");
             Console.WriteLine("[0] Go Back");
         }
@@ -28,7 +29,9 @@ namespace StoreApp
                     //Changes "UserInput" within main to MenuType.ShowCustomerMenu, bringing the user to ShowCustomerMenu
                     return MenuType.ShowCustomerMenu;
                 case "2":
-                    //Changes "UserInput" wihtin main to MenuType.AddCustomerMenu, bringing the user to AddCustomerMenu
+                    //Changes "UserInput" within main to MenuType.SearchCustomerMenu, bringing the user to SearchCustomerMenu
+                    return MenuType.SearchCustomerMenu;
+                case "3":
                     return MenuType.AddCustomerMenu;
                 default:
                     Console.WriteLine("Invalid Input");

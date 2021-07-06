@@ -20,6 +20,8 @@ namespace StoreApp
                 case MenuType.AddCustomerMenu:
                 //brings users to the addcustomermenu, instantates that object and passes through a Customer and Repository object as nested parameters
                     return new AddCustomerMenu(new CustomerBL(new Repository()));
+                case MenuType.SearchCustomerMenu:
+                    return new SearchCustomerMenu(new CustomerBL(new Repository()));
                 default:
                     return null;
             }

@@ -21,8 +21,14 @@ namespace StoreApp
 
             while (repeat)
             {
-                //clears console, makes console more clear to read
-                Console.Clear();
+                 try
+                {
+                    Console.Clear();
+                }
+                catch(SystemException)
+                {
+                    Console.WriteLine ("Console.Clear exception caught!");
+                }
                 //calls Menu() from the MainMenu Object which displays a menu to the user
                 custMenu.Menu();
                 //Takes earlier IMenu Enum MenuType and calls UserInput method within MainMenu object
@@ -45,6 +51,9 @@ namespace StoreApp
                     case MenuType.AddCustomerMenu:
                         // calls Factory GetMenu() and resturns AddCustomerMenu()
                         custMenu = menuFactory.GetMenu(MenuType.AddCustomerMenu);
+                        break;
+                    case MenuType.SearchCustomerMenu:
+                        custMenu = menuFactory.GetMenu(MenuType.SearchCustomerMenu);
                         break;
                     case MenuType.Exit:
                         //ends condition of switch statement

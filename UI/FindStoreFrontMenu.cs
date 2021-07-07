@@ -9,7 +9,7 @@ namespace StoreApp
         {
             Console.WriteLine("Welcome to the Store Front Menu!");
             Console.WriteLine("Search for a Store!");
-            Console.WriteLine("*Display List of Store Locations*")
+            Console.WriteLine("*Display List of Store Locations*");
             Console.WriteLine("Temp: [1] StoreFront Found!");
             Console.WriteLine("[0] Go Back");
         }

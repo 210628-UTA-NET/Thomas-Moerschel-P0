@@ -28,7 +28,7 @@ namespace StoreApp
                 case "2":
                     return MenuType.StoreFrontInventoryMenu;
                 case "3":
-                    return MenuType.ShowStoreFrontOrderHistory; //implement fucntionality
+                  //  return MenuType.ShowStoreFrontOrderHistory; //implement fucntionality
                 case "4":
                     return MenuType.OrderMenu;
                 default:

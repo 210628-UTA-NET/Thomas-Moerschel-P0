@@ -45,7 +45,7 @@ namespace StoreApp
                 case MenuType.StoreFrontInventoryMenu:
                     return new StoreFrontInventoryMenu();
                 case MenuType.FindStoreFrontMenu:
-                    return new StoreFrontInventoryMenu();
+                    return new FindStoreFrontMenu();
                 case MenuType.OrderMenu:
                     return new OrderMenu();
                 default:

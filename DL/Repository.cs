@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using DLEntities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace StoreApp
 {
@@ -21,6 +23,7 @@ namespace StoreApp
         //Called within the BL from _rep, a repository field variable, takes in customer object
         public Customer AddCustomer(Customer p_customer)
         {
+
             //instantiates a list of customer to the GetAllCustomers() method below where the JSON file is read and committed to the list
             //List<Customer> listOfCustomers = this.GetAllCustomers();
             //After adding the preexisting json list, add the next object (p_customer) and rewrite JSON file 

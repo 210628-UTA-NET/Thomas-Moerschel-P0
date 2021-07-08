@@ -23,18 +23,14 @@ namespace StoreApp
         //Called within the BL from _rep, a repository field variable, takes in customer object
         public Customer AddCustomer(Customer p_customer)
         {
-
-            //instantiates a list of customer to the GetAllCustomers() method below where the JSON file is read and committed to the list
-            //List<Customer> listOfCustomers = this.GetAllCustomers();
-            //After adding the preexisting json list, add the next object (p_customer) and rewrite JSON file 
-            //listOfCustomers.Add(p_customer);
-            //serializes the list of customers and sets it equal to the _jsonString
-            //_jsonString = JsonSerializer.Serialize(listOfCustomers, new JsonSerializerOptions{WriteIndented = true});
-            //Writes the _jsonString to _filePath
-            //File.WriteAllText(_filePath, _jsonString);
-            //returns the customer object
-            //return p_customer;
-            throw new System.NotImplementedException();
+            _context.Customers.Add(new DLEntities.Customer{
+                Id = p_customer.Id,
+                CustomerName = p_customer.Name,
+                CustomerAddress = p_customer.Address,
+                CustomerEmail = p_customer.Email
+            });
+            _context.SaveChanges();
+            return p_customer;
         }
 
         public List<Customer> GetAllCustomers()

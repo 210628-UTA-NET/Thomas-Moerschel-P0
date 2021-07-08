@@ -18,6 +18,7 @@ namespace DLEntities
         }
 
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<StoreFront> StoreFronts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,7 +26,6 @@ namespace DLEntities
 
             modelBuilder.Entity<Customer>(entity =>
             {
-                entity.HasNoKey();
 
                 entity.ToTable("Customer");
 
@@ -44,6 +44,22 @@ namespace DLEntities
                 entity.Property(e => e.Id)
                     .ValueGeneratedOnAdd()
                     .HasColumnName("ID");
+            });
+
+            modelBuilder.Entity<StoreFront>(entity =>
+            {
+
+                entity.ToTable("storeFront");
+
+                entity.Property(e => e.StoreAddress)
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("store_address");
+
+                entity.Property(e => e.StoreName)
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("store_name");
             });
 
             OnModelCreatingPartial(modelBuilder);

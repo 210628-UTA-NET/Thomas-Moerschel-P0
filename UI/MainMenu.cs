@@ -33,6 +33,8 @@ namespace StoreApp
                         return MenuType.CustomerMenu;
                     case "2":
                         return MenuType.FindStoreFrontMenu;
+                    case "3":
+                        return MenuType.CustomerFindStoreFrontMenu;
                     default:
                         Console.WriteLine("Input was not correct");
                         Console.WriteLine("Please press ENTER to continue");

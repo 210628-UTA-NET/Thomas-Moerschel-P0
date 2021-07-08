@@ -47,6 +47,7 @@ namespace StoreApp
                         }
                     }
                         Console.WriteLine("Customer Not Found!");
+                        Console.ReadLine();
                         return MenuType.SearchCustomerMenu;
                     
                 case "2":
@@ -65,6 +66,7 @@ namespace StoreApp
                         }
                     }
                         Console.WriteLine("Customer Not Found!");
+                        Console.ReadLine();
                         return MenuType.SearchCustomerMenu;
                 case "3":
                 Console.WriteLine("Please Enter Customer Name:");
@@ -82,6 +84,7 @@ namespace StoreApp
                         }
                     }
                         Console.WriteLine("Customer Not Found!");
+                        Console.ReadLine();
                         return MenuType.SearchCustomerMenu;
                     
                 default:

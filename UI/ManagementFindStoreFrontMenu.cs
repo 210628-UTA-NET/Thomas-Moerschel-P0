@@ -30,15 +30,12 @@ namespace StoreApp
                     return MenuType.MainMenu;
                 case "atlanta" or "atlanta's" or "atlantas" or "3":
                     location.storeLocation(store1);
-                    location._location = store1.Name;
                     return MenuType.StoreFrontMenu;
                 case "fort myers" or "fort myers'" or "fortmyers" or "fortmyers'" or "2":
                     location.storeLocation(store2);
-                    location._location = store2.Name;
                     return MenuType.StoreFrontMenu;
                 case "gainesville" or "gainesville's" or "gainesvilles" or "1":
                     location.storeLocation(store3);
-                    location._location = store3.Name;
                     return MenuType.StoreFrontMenu;
                 default:
                     return MenuType.FindStoreFrontMenu;

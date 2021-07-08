@@ -22,7 +22,7 @@ namespace StoreApp
                 case "0":
                     return MenuType.MainMenu;
                 case "1":
-                    return MenuType.MakeAnOrder;
+                    return MenuType.CustomerValidation;
                 default:
                     return MenuType.CustomerFindStoreFrontMenu;
             }

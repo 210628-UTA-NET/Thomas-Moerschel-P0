@@ -82,6 +82,9 @@ namespace StoreApp
                     case MenuType.MakeAnOrder:
                         custMenu = menuFactory.GetMenu(MenuType.MakeAnOrder);
                         break;
+                    case MenuType.CustomerValidation:
+                        custMenu = menuFactory.GetMenu(MenuType.CustomerValidation);
+                        break;
                     case MenuType.Exit:
                         //ends condition of switch statement
                         Console.WriteLine("Thank you for using the store application!");

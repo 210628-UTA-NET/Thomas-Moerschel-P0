@@ -18,6 +18,7 @@ namespace StoreApp
         CustomerOrderHistory,
         CustomerFindStoreFrontMenu,
         MakeAnOrder,
+        CustomerValidation,
         Exit
     }
     

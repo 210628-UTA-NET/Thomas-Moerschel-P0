@@ -58,6 +58,8 @@ namespace StoreApp
                     return new CustomerFindStoreFrontMenu();
                 case MenuType.MakeAnOrder:
                     return new MakeAnOrder();
+                case MenuType.CustomerValidation:
+                    return new CustomerValidation(new CustomerBL(new Repository(new FirstDatabaseContext(options))));
                 default:
                     return null;
             }

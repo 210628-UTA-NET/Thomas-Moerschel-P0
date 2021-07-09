@@ -18,6 +18,9 @@ namespace DLEntities
         }
 
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<LineItem> LineItems { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<StoreFront> StoreFronts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,40 +29,128 @@ namespace DLEntities
 
             modelBuilder.Entity<Customer>(entity =>
             {
-
                 entity.ToTable("Customer");
+
+                entity.Property(e => e.CustomerId).HasColumnName("customerId");
 
                 entity.Property(e => e.CustomerAddress)
                     .HasMaxLength(40)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("customerAddress");
 
                 entity.Property(e => e.CustomerEmail)
                     .HasMaxLength(40)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("customerEmail");
 
                 entity.Property(e => e.CustomerName)
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("customerName");
+            });
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("ID");
+            modelBuilder.Entity<LineItem>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.LineItemId).HasColumnName("lineItemId");
+
+                entity.Property(e => e.LineItemIdName)
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("lineItemIdName");
+
+                entity.Property(e => e.LineItemQuantity).HasColumnName("lineItemQuantity");
+
+                entity.Property(e => e.OrderId).HasColumnName("orderId");
+
+                entity.Property(e => e.ProductId).HasColumnName("productId");
+
+                entity.Property(e => e.StoreId).HasColumnName("storeId");
+
+                entity.HasOne(d => d.Order)
+                    .WithMany()
+                    .HasForeignKey(d => d.OrderId)
+                    .HasConstraintName("lineItems_foreign_key2");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany()
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("lineItems_foreign_key3");
+
+                entity.HasOne(d => d.Store)
+                    .WithMany()
+                    .HasForeignKey(d => d.StoreId)
+                    .HasConstraintName("lineitems_foreign_key1");
+            });
+
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.Property(e => e.OrderId).HasColumnName("orderId");
+
+                entity.Property(e => e.CustomerId).HasColumnName("customerId");
+
+                entity.Property(e => e.OrderLocation)
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("orderLocation");
+
+                entity.Property(e => e.OrderPrice).HasColumnName("orderPrice");
+
+                entity.Property(e => e.StoreId).HasColumnName("storeId");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("orders_foreign_key1");
+
+                entity.HasOne(d => d.Store)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.StoreId)
+                    .HasConstraintName("orders_foreign_key2");
+            });
+
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.Property(e => e.ProductId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("productId");
+
+                entity.Property(e => e.ProductCategory)
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("productCategory");
+
+                entity.Property(e => e.ProductName)
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("productName");
+
+                entity.Property(e => e.ProductPrice)
+                    .HasColumnType("decimal(5, 2)")
+                    .HasColumnName("productPrice");
             });
 
             modelBuilder.Entity<StoreFront>(entity =>
             {
+                entity.HasKey(e => e.StoreId)
+                    .HasName("PK__StoreFro__1EA71613020D5E15");
 
-                entity.ToTable("storeFront");
+                entity.ToTable("StoreFront");
+
+                entity.Property(e => e.StoreId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("storeId");
 
                 entity.Property(e => e.StoreAddress)
                     .HasMaxLength(40)
                     .IsUnicode(false)
-                    .HasColumnName("store_address");
+                    .HasColumnName("storeAddress");
 
                 entity.Property(e => e.StoreName)
                     .HasMaxLength(40)
                     .IsUnicode(false)
-                    .HasColumnName("store_name");
+                    .HasColumnName("storeName");
             });
 
             OnModelCreatingPartial(modelBuilder);

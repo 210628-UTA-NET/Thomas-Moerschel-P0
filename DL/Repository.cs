@@ -24,7 +24,6 @@ namespace StoreApp
         public Customer AddCustomer(Customer p_customer)
         {
             _context.Customers.Add(new DLEntities.Customer{
-                Id = p_customer.Id,
                 CustomerName = p_customer.Name,
                 CustomerAddress = p_customer.Address,
                 CustomerEmail = p_customer.Email
@@ -39,7 +38,7 @@ namespace StoreApp
                 cust =>
                     new Customer()
                     {
-                        Id = cust.Id,
+                        Id = cust.CustomerId,
                         Name = cust.CustomerName,
                         Address = cust.CustomerAddress,
                         Email = cust.CustomerEmail

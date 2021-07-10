@@ -1,16 +1,26 @@
 using System;
+using System.Collections.Generic;
+
 namespace StoreApp
 {
     public class CustomerFindStoreFrontMenu : IMenu
     {
-        StoreFront store1 = new StoreFront("Atlanta's Luxery Clothing Outlet", "Atlanta, Georgia");
-        StoreFront store2 = new StoreFront("Fort Myers' Luxery Clothing Outlet", "Fort Myers, Florida");
-        StoreFront store3 = new StoreFront("Gainesville's Luxery Cloting Outlet", "Gainesville, Florida");
+        private IStoreFrontBL _storeFrontBL;
+        public CustomerFindStoreFrontMenu(IStoreFrontBL p_storeFrontBL){
+            _storeFrontBL = p_storeFrontBL;
+        }
+        
         public void Menu()
         {
-            Console.WriteLine("Please choose the location that you'd like to shop");
+            List<StoreFront> storeFronts = _storeFrontBL.GetAllStoreFronts();
+            Console.WriteLine("Please choose the store location");
             Console.WriteLine("Choose from the following or type the city of your shop!");
-            Console.WriteLine(string.Format("[3] {0}\n[2] {1}\n[1] {2}", store1, store2, store3));
+            int count = 1;
+            foreach (StoreFront store in storeFronts)
+            {
+                Console.WriteLine("[" + count + "]" + store.Address);
+                count++;
+            }
             Console.WriteLine("[0] Go Back");
         }
 

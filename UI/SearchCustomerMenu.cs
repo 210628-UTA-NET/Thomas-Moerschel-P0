@@ -24,7 +24,6 @@ namespace StoreApp
 
         public MenuType UserInput()
         {
-            List <Customer> customers = _customerBL.GetAllCustomers();
             string userInput = Console.ReadLine();
 
             switch (userInput)
@@ -33,59 +32,64 @@ namespace StoreApp
                     return MenuType.CustomerMenu;
                 case "1":
                     Console.WriteLine("Please Enter Customer Email:");
-                    string email = Console.ReadLine();
-                    foreach (Customer cust in customers)
+
+                    _newCustomer.Email = Console.ReadLine();
+                    _newCustomer.Name =_customerBL.GetCustomer(_newCustomer).Name;
+
+                    if (_newCustomer.Name == "Invalid Entry")
                     {
-                        if (email == cust.Email){
-                            Console.WriteLine("Customer Found!");
-                            Console.WriteLine("-----------------");
-                            Console.WriteLine(cust);
-                            Console.WriteLine("-----------------");
-                            Console.WriteLine("Press ENTER to continue");
-                            Console.ReadLine();
-                            return MenuType.SearchCustomerMenu;
-                        }
-                    }
                         Console.WriteLine("Customer Not Found!");
                         Console.ReadLine();
-                        return MenuType.SearchCustomerMenu;
+                    }
+                    else
+                    {
+                        _newCustomer.Id = _customerBL.GetCustomer(_newCustomer).Id;
+                        _newCustomer.Address = _customerBL.GetCustomer(_newCustomer).Address;
+                        Console.WriteLine(_newCustomer);
+                        Console.ReadLine();
+                        _newCustomer = new Customer();
+                    }
+                    return MenuType.SearchCustomerMenu;
                     
                 case "2":
                     Console.WriteLine("Please Enter Customer Address:");
-                    string address = Console.ReadLine();
-                    foreach (Customer cust in customers)
+                    _newCustomer.Address = Console.ReadLine();
+                    _newCustomer.Name =_customerBL.GetCustomer(_newCustomer).Name;
+
+                    if (_newCustomer.Name == "Invalid Entry")
                     {
-                        if (address == cust.Address){
-                            Console.WriteLine("Customer Found!");
-                            Console.WriteLine("-----------------");
-                            Console.WriteLine(cust);
-                            Console.WriteLine("-----------------");
-                            Console.WriteLine("Press ENTER to continue");
-                            Console.ReadLine();
-                            return MenuType.SearchCustomerMenu;
-                        }
-                    }
                         Console.WriteLine("Customer Not Found!");
                         Console.ReadLine();
-                        return MenuType.SearchCustomerMenu;
+                    }
+                    else
+                    {
+                        _newCustomer.Id = _customerBL.GetCustomer(_newCustomer).Id;
+                        _newCustomer.Email = _customerBL.GetCustomer(_newCustomer).Email;
+                        Console.WriteLine(_newCustomer);
+                        Console.ReadLine();
+                        _newCustomer = new Customer();
+                    }
+                    return MenuType.SearchCustomerMenu;
                 case "3":
                 Console.WriteLine("Please Enter Customer Name:");
-                    string name  = Console.ReadLine();
-                    foreach (Customer cust in customers)
+                    _newCustomer.Name  = Console.ReadLine();
+                    _newCustomer.Name =_customerBL.GetCustomer(_newCustomer).Name;
+
+                    if (_newCustomer.Name == "Invalid Entry")
                     {
-                        if (name == cust.Name){
-                            Console.WriteLine("Customer Found!");
-                            Console.WriteLine("-----------------");
-                            Console.WriteLine(cust);
-                            Console.WriteLine("-----------------");
-                            Console.WriteLine("Press ENTER to continue");
-                            Console.ReadLine();
-                            return MenuType.SearchCustomerMenu;
-                        }
-                    }
                         Console.WriteLine("Customer Not Found!");
                         Console.ReadLine();
-                        return MenuType.SearchCustomerMenu;
+                    }
+                    else
+                    {
+                        _newCustomer.Id = _customerBL.GetCustomer(_newCustomer).Id;
+                        _newCustomer.Address = _customerBL.GetCustomer(_newCustomer).Address;
+                        _newCustomer.Email = _customerBL.GetCustomer(_newCustomer).Email;
+                        Console.WriteLine(_newCustomer);
+                        Console.ReadLine();
+                        _newCustomer = new Customer();
+                    }
+                    return MenuType.SearchCustomerMenu;
                     
                 default:
                     return MenuType.SearchCustomerMenu;

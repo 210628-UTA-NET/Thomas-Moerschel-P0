@@ -23,6 +23,7 @@ namespace DLEntities
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<StoreFront> StoreFronts { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
@@ -53,7 +54,9 @@ namespace DLEntities
             {
                 entity.HasNoKey();
 
-                entity.Property(e => e.LineItemId).HasColumnName("lineItemId");
+                entity.Property(e => e.LineItemId)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("lineItemId");
 
                 entity.Property(e => e.LineItemIdName)
                     .HasMaxLength(40)
@@ -112,9 +115,7 @@ namespace DLEntities
 
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.Property(e => e.ProductId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("productId");
+                entity.Property(e => e.ProductId).HasColumnName("productId");
 
                 entity.Property(e => e.ProductCategory)
                     .HasMaxLength(40)
@@ -134,7 +135,7 @@ namespace DLEntities
             modelBuilder.Entity<StoreFront>(entity =>
             {
                 entity.HasKey(e => e.StoreId)
-                    .HasName("PK__StoreFro__1EA71613020D5E15");
+                    .HasName("PK__StoreFro__1EA7161391AE2E64");
 
                 entity.ToTable("StoreFront");
 

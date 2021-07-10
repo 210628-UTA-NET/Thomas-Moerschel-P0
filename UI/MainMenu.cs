@@ -10,7 +10,7 @@ namespace StoreApp
             Console.WriteLine("Welcome to the Main Menu!");
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("[3] Make an Order");
-            Console.WriteLine("[2] Go to StoreFront Menu");
+            Console.WriteLine("[2] Go to StoreFront Management Menu");
             Console.WriteLine("[1] Go to Customer Management Menu");
             Console.WriteLine("[0] Exit");
 
@@ -32,7 +32,7 @@ namespace StoreApp
                         //returns MenuType.Customer menu to the switch statement within main which navigates to the Customer menu
                         return MenuType.CustomerMenu;
                     case "2":
-                        return MenuType.FindStoreFrontMenu;
+                        return MenuType.ManagementFindStoreFrontMenu;
                     case "3":
                         return MenuType.CustomerFindStoreFrontMenu;
                     default:

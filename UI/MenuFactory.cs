@@ -44,10 +44,10 @@ namespace StoreApp
                     return new StoreFrontMenu(); //needs a BL and DL
                 case MenuType.StoreFrontInventoryMenu:
                     return new StoreFrontInventoryMenu();
-                case MenuType.FindStoreFrontMenu:
-                    return new FindStoreFrontMenu();
+                case MenuType.ManagementFindStoreFrontMenu:
+                    return new ManagementFindStoreFrontMenu(new StoreFrontBL(new Repository(new FirstDatabaseContext(options))));
                 case MenuType.ViewInventory:
-                    return new ViewInventory();
+                    return new ViewInventory(new InventoryBL(new Repository(new FirstDatabaseContext(options))));
                 case MenuType.AddInventory:
                     return new AddInventory();
                 case MenuType.StoreOrderHistory:
@@ -55,7 +55,7 @@ namespace StoreApp
                 case MenuType.CustomerOrderHistory:
                     return new CustomerOrderHistory();
                 case MenuType.CustomerFindStoreFrontMenu:
-                    return new CustomerFindStoreFrontMenu();
+                    return new CustomerFindStoreFrontMenu(new StoreFrontBL(new Repository(new FirstDatabaseContext(options))));
                 case MenuType.MakeAnOrder:
                     return new MakeAnOrder();
                 case MenuType.CustomerValidation:

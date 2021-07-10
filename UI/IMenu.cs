@@ -11,7 +11,7 @@ namespace StoreApp
         SearchCustomerMenu,
         StoreOrderHistory,
         StoreFrontMenu,
-        FindStoreFrontMenu,
+        ManagementFindStoreFrontMenu,
         StoreFrontInventoryMenu,
         AddInventory,
         ViewInventory,

@@ -7,7 +7,7 @@ namespace StoreApp
         public static StoreFront store = new StoreFront();
         public void storeLocation(StoreFront p_storeFront)
         {
-            store.Name = p_storeFront.Name;
+            store = p_storeFront;
         }
         public void Menu()
         {
@@ -21,6 +21,7 @@ namespace StoreApp
         public MenuType UserInput()
         {
             string userInput = Console.ReadLine();
+            ViewInventory location = new ViewInventory();
 
             switch (userInput)
             {
@@ -29,6 +30,7 @@ namespace StoreApp
                 case "1":
                     return MenuType.AddInventory;
                 case "2":
+                    location.storeLocation(store);
                     return MenuType.ViewInventory;
                 default:
                     return MenuType.StoreFrontInventoryMenu;

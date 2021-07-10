@@ -32,6 +32,11 @@ namespace StoreApp
             return p_customer;
         }
 
+        public LineItems AddInventory(LineItems p_lineItems)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public List<Customer> GetAllCustomers()
         {
             return _context.Customers.Select(
@@ -46,9 +51,60 @@ namespace StoreApp
             ).ToList();
         }
 
+        public List<StoreFront> GetAllStoreFronts()
+        {
+            return _context.StoreFronts.Select(
+                store =>
+                    new StoreFront()
+                    {
+                        Id = store.StoreId,
+                        Name = store.StoreName,
+                        Address = store.StoreAddress,
+                    }
+            ).ToList();
+        }
+
         public Customer GetCustomer(Customer p_customer)
         {
-            throw new NotImplementedException();
+            List<Customer> customers = _context.Customers.Select(
+                cust=>
+                    new Customer
+                    {
+                        Id = cust.CustomerId,
+                        Name = cust.CustomerName,
+                        Address = cust.CustomerAddress,
+                        Email = cust.CustomerEmail
+                    }).ToList();
+            foreach(Customer cust in customers)
+            {
+                if (p_customer.Name == cust.Name) {return cust;}
+                else if (p_customer.Address == cust.Address) {return cust;}
+                else if (p_customer.Email == cust.Email) {return cust;}  
+            }
+            p_customer.Name = "Invalid Entry";
+            return p_customer;
+
+        }
+
+        public List<LineItems> GetInventory(StoreFront p_storeFront)
+        {
+
+            List<LineItems> totalInventory = _context.LineItems.Select(
+                inv=>
+                    new LineItems
+                    {
+                        storeId = (int)inv.StoreId,
+                        Id = inv.LineItemId,
+                        Product = inv.LineItemIdName,
+                        Quantity = (int)inv.LineItemQuantity,
+
+                    }).ToList();
+            List<LineItems> storeInventory = new List<LineItems>();
+            foreach (LineItems inv in totalInventory )
+            {
+                if (inv.storeId == p_storeFront.Id){storeInventory.Add(inv);}
+            }
+            return storeInventory;
         }
     }
 }

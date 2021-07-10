@@ -7,7 +7,7 @@ namespace DLEntities
 {
     public partial class LineItem
     {
-        public int? LineItemId { get; set; }
+        public int LineItemId { get; set; }
         public string LineItemIdName { get; set; }
         public int? LineItemQuantity { get; set; }
         public int? StoreId { get; set; }

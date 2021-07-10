@@ -6,7 +6,7 @@ namespace StoreApp
     {
         public static StoreFront store = new StoreFront();
         public void storeLocation(StoreFront p_storeFront){
-            store.Name = p_storeFront.Name;
+            store = p_storeFront;
         }
         public void Menu() 
         {
@@ -28,7 +28,7 @@ namespace StoreApp
                 case "0":
                     return MenuType.MainMenu;
                 case "1":
-                    return MenuType.FindStoreFrontMenu;
+                    return MenuType.ManagementFindStoreFrontMenu;
                 case "2":
                     location.storeLocation(store);
                     return MenuType.StoreFrontInventoryMenu;

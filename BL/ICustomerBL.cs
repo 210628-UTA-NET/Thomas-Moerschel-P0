@@ -8,5 +8,7 @@ namespace StoreApp
          List <Customer> GetAllCustomers();
 
          Customer AddCustomer(Customer p_customer);
+
+         Customer GetCustomer(Customer p_customer);
     }
 }

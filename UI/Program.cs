@@ -58,8 +58,8 @@ namespace StoreApp
                     case MenuType.StoreFrontMenu:
                         custMenu = menuFactory.GetMenu(MenuType.StoreFrontMenu);
                         break;
-                    case MenuType.FindStoreFrontMenu:
-                        custMenu = menuFactory.GetMenu(MenuType.FindStoreFrontMenu);
+                    case MenuType.ManagementFindStoreFrontMenu:
+                        custMenu = menuFactory.GetMenu(MenuType.ManagementFindStoreFrontMenu);
                         break;
                     case MenuType.StoreFrontInventoryMenu:
                         custMenu = menuFactory.GetMenu(MenuType.StoreFrontInventoryMenu);
@@ -87,9 +87,9 @@ namespace StoreApp
                         break;
                     case MenuType.Exit:
                         //ends condition of switch statement
+                        repeat = false;
                         Console.WriteLine("Thank you for using the store application!");
                         Console.WriteLine("Goodbye!");
-                        repeat = false;
                         break;
                     default:
                         Console.WriteLine("Cannot process Input... Please Try again.");

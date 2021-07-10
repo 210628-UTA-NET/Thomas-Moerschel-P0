@@ -15,7 +15,7 @@ namespace StoreApp
 
         public override string ToString()
         {
-            return $"Cusstomer ID: {Id}\nName: {Name}\nAddress: {Address}\nEmail: {Email}";
+            return $"Customer ID: {Id}\nName: {Name}\nAddress: {Address}\nEmail: {Email}";
         }
 
         }

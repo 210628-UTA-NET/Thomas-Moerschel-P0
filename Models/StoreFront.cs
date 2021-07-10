@@ -4,12 +4,7 @@ namespace StoreApp
 {
     public class StoreFront
     {
-        public StoreFront(){}
-        public StoreFront(string Name, string Address)
-        {
-            this.Name = Name;
-            this.Address = Address;
-        }
+        public int Id { get; set; }
         public string Name {get; set; }
         public string Address {get; set; }
         public string [] Inventory {get; set; }

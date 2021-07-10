@@ -4,6 +4,11 @@ namespace StoreApp
 {
     public class AddInventory : IMenu
     {
+        StoreFront store = new StoreFront();
+        public void storeLocation(StoreFront p_storeFront)
+        {
+            store = p_storeFront;
+        }
         public void Menu()
         {
             Console.WriteLine("Welcome to the Inventory Management System");

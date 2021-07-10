@@ -3,6 +3,11 @@ namespace StoreApp
 {
     public class StoreOrderHistory : IMenu
     {
+        StoreFront store = new StoreFront();
+        public void storeLocation(StoreFront p_storeFront)
+        {
+            store = p_storeFront;
+        }
         public void Menu()
         {
             Console.WriteLine("Store Order History");

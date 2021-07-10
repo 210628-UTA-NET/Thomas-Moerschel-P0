@@ -21,16 +21,18 @@ namespace StoreApp
         public MenuType UserInput()
         {
             string userInput = Console.ReadLine();
-            ViewInventory location = new ViewInventory();
+            ViewInventory viewLocation = new ViewInventory();
+            AddInventory addLocation = new AddInventory();
 
             switch (userInput)
             {
                 case "0":
                     return MenuType.StoreFrontMenu;
                 case "1":
+                    addLocation.storeLocation(store);
                     return MenuType.AddInventory;
                 case "2":
-                    location.storeLocation(store);
+                    viewLocation.storeLocation(store);
                     return MenuType.ViewInventory;
                 default:
                     return MenuType.StoreFrontInventoryMenu;

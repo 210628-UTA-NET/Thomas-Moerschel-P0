@@ -7,12 +7,13 @@ using DLEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
+
 namespace StoreApp
 {
     
     public class Repository : IRepository
     {
-        private DLEntities.FirstDatabaseContext _context;
+         DLEntities.FirstDatabaseContext _context = new DLEntities.FirstDatabaseContext();
         public Repository(DLEntities.FirstDatabaseContext p_context)
         {
             _context = p_context;
@@ -32,9 +33,23 @@ namespace StoreApp
             return p_customer;
         }
 
-        public LineItems AddInventory(LineItems p_lineItems)
+        public LineItems AddInventory(LineItems p_lineItems, int quantity)
         {
-            throw new System.NotImplementedException();
+            var data = _context.LineItems.Where(x=>x.LineItemId == p_lineItems.Id ||x.LineItemIdName ==p_lineItems.Product).FirstOrDefault();
+            _context.LineItems.Remove(data); 
+            DLEntities.LineItem lineItem = new DLEntities.LineItem()
+            {
+                LineItemId = data.LineItemId,
+                LineItemIdName = data.LineItemIdName,
+                LineItemQuantity = data.LineItemQuantity + quantity,
+                StoreId = data.StoreId,
+                OrderId = data.OrderId,
+                ProductId = data.ProductId
+            };
+             _context.LineItems.Remove(data);
+             _context.LineItems.Add(lineItem);
+             _context.SaveChanges();
+             return p_lineItems;                         
         }
 
         public List<Customer> GetAllCustomers()

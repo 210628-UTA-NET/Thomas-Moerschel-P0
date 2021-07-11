@@ -10,9 +10,9 @@ namespace StoreApp
         {
             _repo = p_repo;
         }
-        public LineItems AddInventory(LineItems p_lineItems)
+        public LineItems AddInventory(LineItems p_lineItems, int quantity)
         {
-            return _repo.AddInventory(p_lineItems);
+            return _repo.AddInventory(p_lineItems, quantity);
         }
 
         public List<LineItems> GetInventory(StoreFront p_storeFront)

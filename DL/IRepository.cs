@@ -11,7 +11,7 @@ namespace StoreApp
 
          Customer AddCustomer(Customer p_customer);
          List<StoreFront> GetAllStoreFronts();
-         LineItems AddInventory(LineItems p_lineItems);
+         LineItems AddInventory(LineItems p_lineItems, int quantity);
          List<LineItems> GetInventory(StoreFront p_storeFront);
 
     }

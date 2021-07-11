@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -7,6 +8,7 @@ namespace DLEntities
 {
     public partial class LineItem
     {
+        [Key]
         public int LineItemId { get; set; }
         public string LineItemIdName { get; set; }
         public int? LineItemQuantity { get; set; }

@@ -1,35 +1,58 @@
 using System;
+using System.Collections.Generic;
 
 namespace StoreApp
 {
     public class AddInventory : IMenu
     {
-        StoreFront store = new StoreFront();
+        private IInventory _InventoryBL;
+        public static StoreFront store = new StoreFront();
+        public AddInventory(){}
+        public AddInventory(IInventory p_InventoryBL)
+        {
+            _InventoryBL = p_InventoryBL;
+        }
         public void storeLocation(StoreFront p_storeFront)
         {
             store = p_storeFront;
         }
         public void Menu()
         {
-            Console.WriteLine("Welcome to the Inventory Management System");
+            List<LineItems> lineItems = _InventoryBL.GetInventory(store);
+            Console.WriteLine(store.Name + " Inventory Manager");
+            Console.WriteLine("Which Inventory Item would you like to restock?");
+            Console.WriteLine("Inventory List:");
+            Console.WriteLine("---------------");
+            foreach (LineItems item in lineItems)
+            {
+                Console.WriteLine(item);
+                Console.WriteLine("---------------");
+            }
             Console.WriteLine("[0] Go Back");
         }
 
         public MenuType UserInput()
         {
+            List<LineItems> lineItems = _InventoryBL.GetInventory(store);
             string userInput = Console.ReadLine();
-
-            switch (userInput)
+            foreach (LineItems item in lineItems)
             {
-                case "0":
-                    return MenuType.StoreFrontInventoryMenu;
-                default:
-                    Console.WriteLine("Improper Input");
-                    Console.WriteLine("press any key to continue");
+                if (userInput == item.Id.ToString() || item.Product == userInput)
+                {
+                    Console.WriteLine("How much would you like to add?");
+                    string quantity = Console.ReadLine();
+                    _InventoryBL.AddInventory(item, Int16.Parse(quantity));
                     Console.ReadLine();
-                    return MenuType.AddInventory;
-
+                    return MenuType.StoreFrontInventoryMenu;
+                }                
             }
+            return MenuType.ViewInventory;
+
+
+    
+
+            
+           
         }
     }
 }

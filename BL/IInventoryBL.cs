@@ -6,6 +6,6 @@ namespace StoreApp
     {
          List<LineItems> GetInventory(StoreFront p_storeFront);
 
-         LineItems AddInventory(LineItems p_lineItems);
+         LineItems AddInventory(LineItems p_lineItems, int quantity);
     }
 }

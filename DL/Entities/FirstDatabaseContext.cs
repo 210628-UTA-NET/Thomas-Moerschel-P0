@@ -52,7 +52,6 @@ namespace DLEntities
 
             modelBuilder.Entity<LineItem>(entity =>
             {
-                entity.HasNoKey();
 
                 entity.Property(e => e.LineItemId)
                     .ValueGeneratedOnAdd()
@@ -156,7 +155,6 @@ namespace DLEntities
 
             OnModelCreatingPartial(modelBuilder);
         }
-
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

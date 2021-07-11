@@ -49,7 +49,7 @@ namespace StoreApp
                 case MenuType.ViewInventory:
                     return new ViewInventory(new InventoryBL(new Repository(new FirstDatabaseContext(options))));
                 case MenuType.AddInventory:
-                    return new AddInventory();
+                    return new AddInventory(new InventoryBL(new Repository(new FirstDatabaseContext(options))));
                 case MenuType.StoreOrderHistory:
                     return new StoreOrderHistory();
                 case MenuType.CustomerOrderHistory:

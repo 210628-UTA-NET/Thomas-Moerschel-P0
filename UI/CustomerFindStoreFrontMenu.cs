@@ -18,7 +18,7 @@ namespace StoreApp
             int count = 1;
             foreach (StoreFront store in storeFronts)
             {
-                Console.WriteLine("[" + count + "]" + store.Address);
+                Console.WriteLine("[" + count + "] " + store.Address);
                 count++;
             }
             Console.WriteLine("[0] Go Back");
@@ -26,15 +26,24 @@ namespace StoreApp
 
         public MenuType UserInput()
         {
+            CustomerValidation location = new CustomerValidation();
+            List<StoreFront> storeFronts = _storeFrontBL.GetAllStoreFronts();
             string userInput = Console.ReadLine();
-            switch (userInput)
+            switch (userInput.ToLower())
             {
                 case "0":
                     return MenuType.MainMenu;
-                case "1":
+                case "atlanta" or "atlanta's" or "atlantas" or "1":
+                    location.storeLocation(storeFronts[0]);
+                    return MenuType.CustomerValidation;
+                case "gainesville" or "gainesville's" or "gainesvilles" or "2":
+                    location.storeLocation(storeFronts[1]);
+                    return MenuType.CustomerValidation;
+                case "fort myers" or "fort myers'" or "fortmyers" or "fortmyers'" or "3":
+                    location.storeLocation(storeFronts[2]);
                     return MenuType.CustomerValidation;
                 default:
-                    return MenuType.CustomerFindStoreFrontMenu;
+                    return MenuType.ManagementFindStoreFrontMenu;
             }
         }
     }

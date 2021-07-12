@@ -85,6 +85,15 @@ namespace StoreApp
                     case MenuType.CustomerValidation:
                         custMenu = menuFactory.GetMenu(MenuType.CustomerValidation);
                         break;
+                    case MenuType.CustomerCheckout:
+                        custMenu = menuFactory.GetMenu(MenuType.CustomerCheckout);
+                        break;
+                    case MenuType.PurchaseConfirmation:
+                        custMenu = menuFactory.GetMenu(MenuType.PurchaseConfirmation);
+                        break;
+                    case MenuType.SearchCustomerOrderHistory:
+                        custMenu = menuFactory.GetMenu(MenuType.SearchCustomerOrderHistory);
+                        break;
                     case MenuType.Exit:
                         //ends condition of switch statement
                         repeat = false;

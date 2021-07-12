@@ -1,17 +1,30 @@
 using System;
+using System.Collections.Generic;
+
 namespace StoreApp
 {
     public class StoreOrderHistory : IMenu
     {
-        StoreFront store = new StoreFront();
+        private IOrderBL _OrderBL;
+        public StoreOrderHistory(){}
+        public StoreOrderHistory(IOrderBL p_OrderBL){
+            _OrderBL = p_OrderBL;
+        }
+        public static StoreFront store = new StoreFront();
         public void storeLocation(StoreFront p_storeFront)
         {
             store = p_storeFront;
         }
         public void Menu()
         {
-            Console.WriteLine("Store Order History");
+            List <Orders> storeOrders = _OrderBL.GetOrders(store);
+            Console.WriteLine(store.Name + " Order History");
             Console.WriteLine("-------------------");
+            foreach (Orders order in storeOrders)
+            {
+                Console.WriteLine(order);
+                Console.WriteLine("-------------------");
+            }
             Console.WriteLine("[0] Go Back");
         }
 

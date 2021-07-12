@@ -35,7 +35,7 @@ namespace StoreApp
                 case "3":
                     return MenuType.AddCustomerMenu;
                 case "4":
-                    return MenuType.CustomerOrderHistory;
+                    return MenuType.SearchCustomerOrderHistory;
                 default:
                     Console.WriteLine("Invalid Input");
                     Console.WriteLine("Press ENTER to continue...");

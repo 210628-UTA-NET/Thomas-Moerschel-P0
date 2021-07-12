@@ -46,10 +46,21 @@ namespace StoreApp
                 OrderId = data.OrderId,
                 ProductId = data.ProductId
             };
-             _context.LineItems.Remove(data);
              _context.LineItems.Add(lineItem);
              _context.SaveChanges();
              return p_lineItems;                         
+        }
+
+        public Orders AddOrder(StoreFront p_storeFront, Customer p_customer, Orders p_order)
+        {
+            _context.Orders.Add(new DLEntities.Order{
+                CustomerId = p_customer.Id,
+                StoreId = p_storeFront.Id,
+                OrderPrice = (decimal?)p_order.Price,
+                OrderLocation = p_storeFront.Address,
+            });
+            _context.SaveChanges();
+            return p_order;
         }
 
         public List<Customer> GetAllCustomers()
@@ -120,6 +131,62 @@ namespace StoreApp
                 if (inv.storeId == p_storeFront.Id){storeInventory.Add(inv);}
             }
             return storeInventory;
+        }
+
+        public List<Orders> GetOrders(StoreFront p_storeFront)
+        {
+            List<Orders> allOrders = _context.Orders.Select(
+                Ord=>
+                    new Orders
+                    {
+                        StoreId = (int)Ord.StoreId,
+                        CustomerId = (int)Ord.CustomerId,
+                        Price = (double)Ord.OrderPrice,
+                    }).ToList();
+            List<Orders> storeOrders = new List<Orders>();
+            foreach (Orders order in allOrders)
+            {
+                if (order.StoreId == p_storeFront.Id){storeOrders.Add(order);}
+            }
+            return storeOrders;
+        }
+
+        public List<Orders> GetOrders(Customer p_customer)
+        {
+            List<Orders> allOrders = _context.Orders.Select(
+                Ord=>
+                    new Orders
+                    {
+                        StoreId = (int)Ord.StoreId,
+                        CustomerId = (int)Ord.CustomerId,
+                        Price = (double)Ord.OrderPrice,
+                    }).ToList();
+            List<Orders> customerOrders = new List<Orders>();
+            foreach(Orders order in allOrders)
+            {
+                if (order.CustomerId == p_customer.Id){customerOrders.Add(order);}
+            }
+            return customerOrders;
+        }
+
+        public List<Products> GetProducts(StoreFront p_storeFront)
+        {
+            List<Products> totalProducts = _context.Products.Select(
+                pro=>
+                    new Products
+                    {
+                        StoreId = (int)pro.StoreId,
+                        ProductId = pro.ProductId,
+                        Name = pro.ProductName,
+                        Price = (double)pro.ProductPrice,
+                        Category = pro.ProductCategory
+                    }).ToList();
+            List<Products> storeProducts = new List<Products>();
+            foreach (Products pro in totalProducts)
+            {
+                if (pro.StoreId ==p_storeFront.Id){storeProducts.Add(pro);}
+            }
+            return storeProducts;
         }
     }
 }

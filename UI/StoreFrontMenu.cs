@@ -33,6 +33,8 @@ namespace StoreApp
                     location.storeLocation(store);
                     return MenuType.StoreFrontInventoryMenu;
                 case "3":
+                    StoreOrderHistory newStoreHistory = new StoreOrderHistory();
+                    newStoreHistory.storeLocation(store);
                     return MenuType.StoreOrderHistory;
                 default:
                     return MenuType.StoreFrontMenu;

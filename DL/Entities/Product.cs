@@ -11,5 +11,6 @@ namespace DLEntities
         public string ProductName { get; set; }
         public decimal? ProductPrice { get; set; }
         public string ProductCategory { get; set; }
+        public int? StoreId { get; set; }
     }
 }

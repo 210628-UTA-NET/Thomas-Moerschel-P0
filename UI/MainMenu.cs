@@ -12,7 +12,6 @@ namespace StoreApp
             Console.WriteLine("[3] Make an Order");
             Console.WriteLine("[2] Go to StoreFront Management Menu");
             Console.WriteLine("[1] Go to Customer Management Menu");
-            Console.WriteLine("Grim was here!");
             Console.WriteLine("[0] Exit");
 
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace StoreApp
 {
@@ -8,7 +9,7 @@ namespace StoreApp
         public string Name {get; set; }
         public string Address {get; set; } 
         public string Email {get; set; }
-        public object [] ListofOrders {get; set; }
+        public List <LineItems> ListofOrders {get; set; }
 
         
         //overrides default string function allowing you to output object parameters:: otherwise you receive "namespace.class"

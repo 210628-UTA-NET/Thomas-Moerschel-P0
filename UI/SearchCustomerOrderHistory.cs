@@ -1,29 +1,25 @@
 using System;
-using System.Collections.Generic;
-
 namespace StoreApp
 {
-    public class SearchCustomerMenu : IMenu
+    public class SearchCustomerOrderHistory : IMenu
     {
         public static Customer _newCustomer = new Customer();
         private ICustomerBL _customerBL;
-        public SearchCustomerMenu(){}
-        public SearchCustomerMenu(ICustomerBL p_customerBL)
+        public SearchCustomerOrderHistory(){}
+        public SearchCustomerOrderHistory(ICustomerBL p_customerBL)
         {
             _customerBL = p_customerBL;
         }
         public void Menu()
         {
-            Console.WriteLine("How would you like to search?");
-            Console.WriteLine("[3] Search by Name");
-            Console.WriteLine("[2] Search by Address");
-            Console.WriteLine("[1] Search by Email");
-            Console.WriteLine("[0] Go Back");
-            
+            SearchCustomerMenu newCustomerMenu = new SearchCustomerMenu();
+            newCustomerMenu.Menu();
         }
 
         public MenuType UserInput()
         {
+            SearchCustomerMenu newCustomerMenu = new SearchCustomerMenu();
+            CustomerOrderHistory newOrderHistory = new CustomerOrderHistory();
             string userInput = Console.ReadLine();
 
             switch (userInput)
@@ -40,16 +36,16 @@ namespace StoreApp
                     {
                         Console.WriteLine("Customer Not Found!");
                         Console.ReadLine();
+                        return MenuType.SearchCustomerOrderHistory;
                     }
                     else
                     {
                         _newCustomer.Id = _customerBL.GetCustomer(_newCustomer).Id;
                         _newCustomer.Address = _customerBL.GetCustomer(_newCustomer).Address;
-                        Console.WriteLine(_newCustomer);
-                        Console.ReadLine();
+                        newOrderHistory.customerInformation(_newCustomer);
                         _newCustomer = new Customer();
                     }
-                    return MenuType.SearchCustomerMenu;
+                    return MenuType.CustomerOrderHistory;
                     
                 case "2":
                     Console.WriteLine("Please Enter Customer Address:");
@@ -60,16 +56,16 @@ namespace StoreApp
                     {
                         Console.WriteLine("Customer Not Found!");
                         Console.ReadLine();
+                        return MenuType.SearchCustomerOrderHistory;
                     }
                     else
                     {
                         _newCustomer.Id = _customerBL.GetCustomer(_newCustomer).Id;
                         _newCustomer.Email = _customerBL.GetCustomer(_newCustomer).Email;
-                        Console.WriteLine(_newCustomer);
-                        Console.ReadLine();
+                        newOrderHistory.customerInformation(_newCustomer);
                         _newCustomer = new Customer();
                     }
-                    return MenuType.SearchCustomerMenu;
+                    return MenuType.CustomerOrderHistory;
                 case "3":
                 Console.WriteLine("Please Enter Customer Name:");
                     _newCustomer.Name  = Console.ReadLine();
@@ -79,20 +75,20 @@ namespace StoreApp
                     {
                         Console.WriteLine("Customer Not Found!");
                         Console.ReadLine();
+                        return MenuType.SearchCustomerOrderHistory;
                     }
                     else
                     {
                         _newCustomer.Id = _customerBL.GetCustomer(_newCustomer).Id;
                         _newCustomer.Address = _customerBL.GetCustomer(_newCustomer).Address;
                         _newCustomer.Email = _customerBL.GetCustomer(_newCustomer).Email;
-                        Console.WriteLine(_newCustomer);
-                        Console.ReadLine();
+                        newOrderHistory.customerInformation(_newCustomer);
                         _newCustomer = new Customer();
                     }
-                    return MenuType.SearchCustomerMenu;
+                    return MenuType.CustomerOrderHistory;
                     
                 default:
-                    return MenuType.SearchCustomerMenu;
+                    return MenuType.SearchCustomerOrderHistory;
             }
         }
     }

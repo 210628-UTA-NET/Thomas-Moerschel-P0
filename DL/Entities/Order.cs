@@ -8,7 +8,7 @@ namespace DLEntities
     public partial class Order
     {
         public string OrderLocation { get; set; }
-        public int? OrderPrice { get; set; }
+        public decimal? OrderPrice { get; set; }
         public int OrderId { get; set; }
         public int? CustomerId { get; set; }
         public int? StoreId { get; set; }

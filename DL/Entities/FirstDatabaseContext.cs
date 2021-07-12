@@ -23,7 +23,6 @@ namespace DLEntities
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<StoreFront> StoreFronts { get; set; }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
@@ -97,7 +96,9 @@ namespace DLEntities
                     .IsUnicode(false)
                     .HasColumnName("orderLocation");
 
-                entity.Property(e => e.OrderPrice).HasColumnName("orderPrice");
+                entity.Property(e => e.OrderPrice)
+                    .HasColumnType("decimal(5, 2)")
+                    .HasColumnName("orderPrice");
 
                 entity.Property(e => e.StoreId).HasColumnName("storeId");
 
@@ -129,12 +130,14 @@ namespace DLEntities
                 entity.Property(e => e.ProductPrice)
                     .HasColumnType("decimal(5, 2)")
                     .HasColumnName("productPrice");
+
+                entity.Property(e => e.StoreId).HasColumnName("storeId");
             });
 
             modelBuilder.Entity<StoreFront>(entity =>
             {
                 entity.HasKey(e => e.StoreId)
-                    .HasName("PK__StoreFro__1EA7161391AE2E64");
+                    .HasName("PK__StoreFro__1EA716130CBB319B");
 
                 entity.ToTable("StoreFront");
 
@@ -155,6 +158,7 @@ namespace DLEntities
 
             OnModelCreatingPartial(modelBuilder);
         }
+
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

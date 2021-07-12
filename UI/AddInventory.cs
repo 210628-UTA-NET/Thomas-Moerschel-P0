@@ -42,7 +42,6 @@ namespace StoreApp
                     Console.WriteLine("How much would you like to add?");
                     string quantity = Console.ReadLine();
                     _InventoryBL.AddInventory(item, Int16.Parse(quantity));
-                    Console.ReadLine();
                     return MenuType.StoreFrontInventoryMenu;
                 }                
             }

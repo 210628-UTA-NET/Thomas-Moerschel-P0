@@ -20,8 +20,8 @@ namespace StoreApp
         {
             Console.WriteLine("Welcome to " + store.Name);
             Console.WriteLine("Are you a new or returning customer?");
-            Console.WriteLine("[2] New Customer");
-            Console.WriteLine("[1] Returning Customer");
+            Console.WriteLine("[2] Customer Sign Up");
+            Console.WriteLine("[1] Customer Login");
             Console.WriteLine("[0] Go Back");
         }
 
@@ -61,11 +61,11 @@ namespace StoreApp
                     newCustomer.Email = customerEmail;
                     Console.WriteLine("Please Input your Address");
                     string customerAddress = Console.ReadLine();
-                    newCustomer.Address = customerEmail;
+                    newCustomer.Address = customerAddress;
                     _customerBL.AddCustomer(newCustomer);
                     newOrder.storeLocation(store);
                     newOrder.customerInformation(newCustomer);
-                        return MenuType.MakeAnOrder;
+                        return MenuType.CustomerValidation;
                 default:
                     return MenuType.CustomerValidation;
 

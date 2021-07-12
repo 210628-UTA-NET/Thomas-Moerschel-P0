@@ -64,7 +64,6 @@ namespace StoreApp
                     newCustomer.Address = customerAddress;
                     _customerBL.AddCustomer(newCustomer);
                     newOrder.storeLocation(store);
-                    newOrder.customerInformation(newCustomer);
                         return MenuType.CustomerValidation;
                 default:
                     return MenuType.CustomerValidation;

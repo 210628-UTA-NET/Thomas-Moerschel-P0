@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using StoreAppBL;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppUI
 {
     public class CustomerFindStoreFrontMenu : IMenu
     {
@@ -13,14 +15,17 @@ namespace StoreApp
         public void Menu()
         {
             List<StoreFront> storeFronts = _storeFrontBL.GetAllStoreFronts();
+            Console.WriteLine("=========================================================");
             Console.WriteLine("Please choose the store location");
             Console.WriteLine("Choose from the following or type the city of your shop!");
+            Console.WriteLine("=========================================================");
             int count = 1;
             foreach (StoreFront store in storeFronts)
             {
                 Console.WriteLine("[" + count + "] " + store.Address);
                 count++;
             }
+            Console.WriteLine("=========================================================");
             Console.WriteLine("[0] Go Back");
         }
 

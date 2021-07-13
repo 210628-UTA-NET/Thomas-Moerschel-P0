@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System;
-using StoreApp;
+using StoreAppDL;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppBL
 {
     public class CustomerBL : ICustomerBL
     {

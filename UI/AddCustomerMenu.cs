@@ -1,6 +1,8 @@
 using System;
+using StoreAppBL;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppUI
 {
     public class AddCustomerMenu : IMenu
     {   
@@ -15,10 +17,12 @@ namespace StoreApp
         }
         public void Menu()
         {
+            Console.WriteLine("=======================================");
             Console.WriteLine("[4] Name: " + _newCustomer.Name);
             Console.WriteLine("[3] Address: "+ _newCustomer.Address);
             Console.WriteLine("[2] Email: "+_newCustomer.Email);
             Console.WriteLine("[1] Add Customer");
+            Console.WriteLine("=======================================");
             Console.WriteLine("[0] Go Back");
         }
         //called by the main to retrieve user input for the AddCustomer Functionality

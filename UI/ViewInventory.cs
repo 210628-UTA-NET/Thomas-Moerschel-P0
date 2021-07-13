@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using StoreAppBL;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppUI
 {
     public class ViewInventory : IMenu
     {
@@ -19,7 +21,7 @@ namespace StoreApp
         public void Menu()
         {
             Console.WriteLine("Inventory List");
-            Console.WriteLine("--------------");
+            Console.WriteLine("================");
             List<LineItems> lineItems = _InventoryBL.GetInventory(store);
             foreach (LineItems item in lineItems)
             {

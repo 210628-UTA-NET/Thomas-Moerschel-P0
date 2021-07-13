@@ -6,9 +6,9 @@ using System.Text.Json;
 using DLEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using StoreAppModels;
 
-
-namespace StoreApp
+namespace StoreAppDL
 {
     
     public class Repository : IRepository
@@ -22,7 +22,7 @@ namespace StoreApp
         
         
         //Called within the BL from _rep, a repository field variable, takes in customer object
-        public Customer AddCustomer(Customer p_customer)
+        public StoreAppModels.Customer AddCustomer(StoreAppModels.Customer p_customer)
         {
             _context.Customers.Add(new DLEntities.Customer{
                 CustomerName = p_customer.Name,
@@ -51,7 +51,7 @@ namespace StoreApp
              return p_lineItems;                         
         }
 
-        public Orders AddOrder(StoreFront p_storeFront, Customer p_customer, Orders p_order)
+        public Orders AddOrder(StoreAppModels.StoreFront p_storeFront, StoreAppModels.Customer p_customer, Orders p_order)
         {
             _context.Orders.Add(new DLEntities.Order{
                 CustomerId = p_customer.Id,
@@ -63,11 +63,11 @@ namespace StoreApp
             return p_order;
         }
 
-        public List<Customer> GetAllCustomers()
+        public List<StoreAppModels.Customer> GetAllCustomers()
         {
             return _context.Customers.Select(
                 cust =>
-                    new Customer()
+                    new StoreAppModels.Customer()
                     {
                         Id = cust.CustomerId,
                         Name = cust.CustomerName,
@@ -77,11 +77,11 @@ namespace StoreApp
             ).ToList();
         }
 
-        public List<StoreFront> GetAllStoreFronts()
+        public List<StoreAppModels.StoreFront> GetAllStoreFronts()
         {
             return _context.StoreFronts.Select(
                 store =>
-                    new StoreFront()
+                    new StoreAppModels.StoreFront()
                     {
                         Id = store.StoreId,
                         Name = store.StoreName,
@@ -90,18 +90,18 @@ namespace StoreApp
             ).ToList();
         }
 
-        public Customer GetCustomer(Customer p_customer)
+        public StoreAppModels.Customer GetCustomer(StoreAppModels.Customer p_customer)
         {
-            List<Customer> customers = _context.Customers.Select(
+            List<StoreAppModels.Customer> customers = _context.Customers.Select(
                 cust=>
-                    new Customer
+                    new StoreAppModels.Customer
                     {
                         Id = cust.CustomerId,
                         Name = cust.CustomerName,
                         Address = cust.CustomerAddress,
                         Email = cust.CustomerEmail
                     }).ToList();
-            foreach(Customer cust in customers)
+            foreach(StoreAppModels.Customer cust in customers)
             {
                 if (p_customer.Name == cust.Name) {return cust;}
                 else if (p_customer.Address == cust.Address) {return cust;}
@@ -112,7 +112,7 @@ namespace StoreApp
 
         }
 
-        public List<LineItems> GetInventory(StoreFront p_storeFront)
+        public List<LineItems> GetInventory(StoreAppModels.StoreFront p_storeFront)
         {
 
             List<LineItems> totalInventory = _context.LineItems.Select(
@@ -133,7 +133,7 @@ namespace StoreApp
             return storeInventory;
         }
 
-        public List<Orders> GetOrders(StoreFront p_storeFront)
+        public List<Orders> GetOrders(StoreAppModels.StoreFront p_storeFront)
         {
             List<Orders> allOrders = _context.Orders.Select(
                 Ord=>
@@ -151,7 +151,7 @@ namespace StoreApp
             return storeOrders;
         }
 
-        public List<Orders> GetOrders(Customer p_customer)
+        public List<Orders> GetOrders(StoreAppModels.Customer p_customer)
         {
             List<Orders> allOrders = _context.Orders.Select(
                 Ord=>
@@ -169,7 +169,7 @@ namespace StoreApp
             return customerOrders;
         }
 
-        public List<Products> GetProducts(StoreFront p_storeFront)
+        public List<Products> GetProducts(StoreAppModels.StoreFront p_storeFront)
         {
             List<Products> totalProducts = _context.Products.Select(
                 pro=>

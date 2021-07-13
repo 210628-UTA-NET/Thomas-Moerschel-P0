@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using StoreAppBL;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppUI
 {
     public class SearchCustomerMenu : IMenu
     {
@@ -14,10 +16,12 @@ namespace StoreApp
         }
         public void Menu()
         {
+            Console.WriteLine("==============================");
             Console.WriteLine("How would you like to search?");
             Console.WriteLine("[3] Search by Name");
             Console.WriteLine("[2] Search by Address");
             Console.WriteLine("[1] Search by Email");
+            Console.WriteLine("==============================");
             Console.WriteLine("[0] Go Back");
             
         }

@@ -1,18 +1,22 @@
 using System;
 
-namespace StoreApp
+namespace StoreAppUI
 {
     public class MainMenu : IMenu
     {
 
         public void Menu()
         {
+            Console.WriteLine("======================================");
             Console.WriteLine("Welcome to the Main Menu!");
             Console.WriteLine("What would you like to do?");
+            Console.WriteLine("======================================");
             Console.WriteLine("[3] Make an Order");
             Console.WriteLine("[2] Go to StoreFront Management Menu");
             Console.WriteLine("[1] Go to Customer Management Menu");
+            Console.WriteLine("======================================");
             Console.WriteLine("[0] Exit");
+            
 
         }
 

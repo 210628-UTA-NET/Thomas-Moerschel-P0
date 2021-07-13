@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
-namespace StoreApp
+using StoreAppModels;
+
+namespace StoreAppDL
 
 {
     public interface IRepository

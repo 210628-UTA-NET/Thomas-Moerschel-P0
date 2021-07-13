@@ -1,5 +1,8 @@
 using System;
-namespace StoreApp
+using StoreAppBL;
+using StoreAppModels;
+
+namespace StoreAppUI
 {
     public class SearchCustomerOrderHistory : IMenu
     {
@@ -28,13 +31,16 @@ namespace StoreApp
                     return MenuType.CustomerMenu;
                 case "1":
                     Console.WriteLine("Please Enter Customer Email:");
+                    Console.WriteLine("-------------------------------");
 
                     _newCustomer.Email = Console.ReadLine();
                     _newCustomer.Name =_customerBL.GetCustomer(_newCustomer).Name;
 
                     if (_newCustomer.Name == "Invalid Entry")
                     {
+                        Console.WriteLine("===================");
                         Console.WriteLine("Customer Not Found!");
+                        Console.WriteLine("===================");
                         Console.ReadLine();
                         return MenuType.SearchCustomerOrderHistory;
                     }
@@ -49,12 +55,15 @@ namespace StoreApp
                     
                 case "2":
                     Console.WriteLine("Please Enter Customer Address:");
+                    Console.WriteLine("-------------------------------");
                     _newCustomer.Address = Console.ReadLine();
                     _newCustomer.Name =_customerBL.GetCustomer(_newCustomer).Name;
 
                     if (_newCustomer.Name == "Invalid Entry")
                     {
+                        Console.WriteLine("===================");
                         Console.WriteLine("Customer Not Found!");
+                        Console.WriteLine("===================");
                         Console.ReadLine();
                         return MenuType.SearchCustomerOrderHistory;
                     }
@@ -68,12 +77,15 @@ namespace StoreApp
                     return MenuType.CustomerOrderHistory;
                 case "3":
                 Console.WriteLine("Please Enter Customer Name:");
+                Console.WriteLine("-------------------------------");
                     _newCustomer.Name  = Console.ReadLine();
                     _newCustomer.Name =_customerBL.GetCustomer(_newCustomer).Name;
 
                     if (_newCustomer.Name == "Invalid Entry")
                     {
+                        Console.WriteLine("===================");
                         Console.WriteLine("Customer Not Found!");
+                        Console.WriteLine("===================");
                         Console.ReadLine();
                         return MenuType.SearchCustomerOrderHistory;
                     }

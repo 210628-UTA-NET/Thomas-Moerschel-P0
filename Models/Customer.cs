@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace StoreApp
+namespace StoreAppModels
 {
     public class Customer
     {

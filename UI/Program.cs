@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace StoreApp
+namespace StoreAppUI
 {
     class Program
     {

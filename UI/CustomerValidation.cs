@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using StoreAppBL;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppUI
 {
     public class CustomerValidation : IMenu
     {
@@ -18,11 +20,15 @@ namespace StoreApp
         }
         public void Menu()
         {
+            Console.WriteLine("==================================================");
             Console.WriteLine("Welcome to " + store.Name);
-            Console.WriteLine("Are you a new or returning customer?");
+            Console.WriteLine("Customer Login");
+            Console.WriteLine("==================================================");
             Console.WriteLine("[2] Customer Sign Up");
             Console.WriteLine("[1] Customer Login");
+            Console.WriteLine("==================================================");
             Console.WriteLine("[0] Go Back");
+        
         }
 
         public MenuType UserInput()

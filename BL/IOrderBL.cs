@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
-namespace StoreApp
+using StoreAppModels;
+
+namespace StoreAppBL
 {
     public interface IOrderBL
     {

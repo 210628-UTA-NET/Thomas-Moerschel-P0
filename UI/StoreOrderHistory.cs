@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using StoreAppBL;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppUI
 {
     public class StoreOrderHistory : IMenu
     {
@@ -19,12 +21,13 @@ namespace StoreApp
         {
             List <Orders> storeOrders = _OrderBL.GetOrders(store);
             Console.WriteLine(store.Name + " Order History");
-            Console.WriteLine("-------------------");
+            Console.WriteLine("=================================================");
             foreach (Orders order in storeOrders)
             {
                 Console.WriteLine(order);
-                Console.WriteLine("-------------------");
+                Console.WriteLine("--------------------------------------------------");
             }
+            Console.WriteLine("=================================================");
             Console.WriteLine("[0] Go Back");
         }
 

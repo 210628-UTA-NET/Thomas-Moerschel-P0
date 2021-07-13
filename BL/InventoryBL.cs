@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using StoreAppDL;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppBL
 {
     public class InventoryBL : IInventory
     {   

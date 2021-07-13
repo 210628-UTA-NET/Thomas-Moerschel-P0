@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using StoreAppBL;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppUI
 {
     public class CustomerOrderHistory : IMenu
     {
@@ -20,13 +22,16 @@ namespace StoreApp
         {
             List <Orders> orderHistory = _OrderBL.GetOrders(customerOrderHistory);
             //need functionality to find customer to display their order history, you could do that here or make a new .cs file similar to FindStoreLocation which prompts for user information (find customer, if not add customer) before coming to this menu
+            Console.WriteLine("=============================================");
             Console.WriteLine(customerOrderHistory.Name + "'s Order History");
-            Console.WriteLine("----------------------");
+            Console.WriteLine("=============================================");
+            Console.WriteLine("--------------------------------------------------");
             foreach (Orders order in orderHistory)
             {
                 Console.WriteLine(order);
-                Console.WriteLine("----------------------");
+                Console.WriteLine("--------------------------------------------------");
             }
+            Console.WriteLine("=============================================");
             Console.WriteLine("[0] Go Back");
         }
 

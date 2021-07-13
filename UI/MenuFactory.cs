@@ -4,7 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
 using DLEntities;
-namespace StoreApp
+using StoreAppBL;
+using StoreAppDL;
+
+namespace StoreAppUI
 {
     //This class abstracts what would be in the main and exports functionality to a "Factory".cs
     public class MenuFactory : IFactory

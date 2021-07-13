@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using StoreAppBL;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppUI
 {
     public class ShowCustomerMenu : IMenu
     {
@@ -16,7 +18,7 @@ namespace StoreApp
         {
 
             Console.WriteLine("List of Customers:");
-            Console.WriteLine("-------------------");
+            Console.WriteLine("===================");
             //instantiates a list of Customer of type ICustomerBL and calls the "GetAllCustomers" Method within the BL that retrieves information from the repository
             List <Customer> customers = _customerBL.GetAllCustomers();
 
@@ -24,7 +26,7 @@ namespace StoreApp
             foreach (Customer cust in customers)
             {
                 Console.WriteLine(cust);
-                Console.WriteLine("-------------------");
+                Console.WriteLine("----------------------");
             }
             Console.WriteLine("[0] Go Back");
             

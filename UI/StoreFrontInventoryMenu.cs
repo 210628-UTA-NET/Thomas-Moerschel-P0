@@ -1,6 +1,7 @@
 using System;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppUI
 {
     public class StoreFrontInventoryMenu : IMenu
     {
@@ -11,10 +12,13 @@ namespace StoreApp
         }
         public void Menu()
         {
+            Console.WriteLine("=========================================================================");
             Console.WriteLine("Welcome to " + store.Name + " Inventory Managment Menu!");
             Console.WriteLine("What would you like to do?");
+            Console.WriteLine("=========================================================================");
             Console.WriteLine("[2] View Inventory");
             Console.WriteLine("[1] Replenish Inventory");
+            Console.WriteLine("=========================================================================");
             Console.WriteLine("[0] Go Back");
         }
 

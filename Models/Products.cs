@@ -1,6 +1,6 @@
 using System;
 
-namespace StoreApp
+namespace StoreAppModels
 {
     public class Products
     {

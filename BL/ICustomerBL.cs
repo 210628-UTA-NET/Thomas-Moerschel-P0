@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppBL
 {
     public interface ICustomerBL
     {

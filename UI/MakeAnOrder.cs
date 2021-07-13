@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using StoreAppBL;
+using StoreAppModels;
 
-namespace StoreApp
+namespace StoreAppUI
 {
     public class MakeAnOrder : IMenu
     {
@@ -28,11 +30,13 @@ namespace StoreApp
         
         public void Menu()
         {
+            Console.WriteLine("===================================================================");
             Console.WriteLine("Welcome " + shoppingCustomer.Name + " to " + shoppingStoreFront.Name);
             Console.WriteLine(shoppingStoreFront.Name + " Summer Catalog:");
-            Console.WriteLine("-------------------");
+            Console.WriteLine("===================================================================");
             List<LineItems> lineItems = _InventoryBL.GetInventory(shoppingStoreFront);
             List<Products> products = _ProductsBL.GetProducts(shoppingStoreFront);
+            Console.WriteLine("-------------------");
             foreach(Products prod in products)
             {
                  if (prod.StoreId == shoppingStoreFront.Id)
@@ -48,6 +52,7 @@ namespace StoreApp
                     }
                 }
             }
+            Console.WriteLine("===================================================================");
             Console.WriteLine("[0] Go Back");
         }
 
@@ -55,7 +60,9 @@ namespace StoreApp
         {
             List<LineItems> lineItems = _InventoryBL.GetInventory(shoppingStoreFront);
             List<Products> products = _ProductsBL.GetProducts(shoppingStoreFront);
+            Console.WriteLine("===================================================================");
             Console.WriteLine("Which Item would you like to purchase?\n(Choose by Product ID or Product Name)");
+            Console.WriteLine("===================================================================");
             double price = 0.00;
             string userInput = Console.ReadLine();
             string invQuantity;
@@ -63,8 +70,16 @@ namespace StoreApp
             {
                 if (userInput == item.Id.ToString() || item.Product.ToLower() == userInput.ToLower())
                 {
+                    Console.WriteLine("=============================================");
                     Console.WriteLine("How many would you like to add to your cart?");
+                    Console.WriteLine("=============================================");
                     string quantity = Console.ReadLine();
+                    if (Int16.Parse(quantity) > item.Quantity)
+                    {
+                        Console.WriteLine("Not enough avaliable inventory to complete purchase...\nPlease try again.");
+                        Console.ReadLine();
+                        return MenuType.MakeAnOrder;
+                    }
                     invQuantity = "-" + quantity;
                     item.Quantity = Int16.Parse(quantity);
                     _InventoryBL.AddInventory(item, Int16.Parse(invQuantity));
@@ -90,8 +105,10 @@ namespace StoreApp
                 
             }
             Console.Clear();
+            Console.WriteLine("========================================");
             Console.WriteLine("Would you like to make another purchase?");
             Console.WriteLine("[2] Make another Purchase\n[1] Continue to Checkout\n[0] Cancel Order");
+            Console.WriteLine("========================================");
             userInput = Console.ReadLine();
             switch (userInput)
             {

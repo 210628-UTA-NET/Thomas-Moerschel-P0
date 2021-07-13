@@ -97,8 +97,11 @@ namespace StoreAppUI
                     case MenuType.Exit:
                         //ends condition of switch statement
                         repeat = false;
+                        Console.Clear();
+                        Console.WriteLine("===========================================");
                         Console.WriteLine("Thank you for using the store application!");
                         Console.WriteLine("Goodbye!");
+                        Console.WriteLine("===========================================");
                         break;
                     default:
                         Console.WriteLine("Cannot process Input... Please Try again.");

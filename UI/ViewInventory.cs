@@ -20,14 +20,17 @@ namespace StoreAppUI
         }
         public void Menu()
         {
-            Console.WriteLine("Inventory List");
-            Console.WriteLine("================");
+            Console.WriteLine("=====================================================");
+            Console.WriteLine(store.Name + " Inventory:");
+            Console.WriteLine("=====================================================");
             List<LineItems> lineItems = _InventoryBL.GetInventory(store);
+            Console.WriteLine("------------------------");
             foreach (LineItems item in lineItems)
             {
                 Console.WriteLine(item);
-                Console.WriteLine("--------------");
+                Console.WriteLine("------------------------");
             }
+            Console.WriteLine("=====================================================");
             Console.WriteLine("[0] Go Back");
         }
 
@@ -40,8 +43,10 @@ namespace StoreAppUI
                 case "0":
                     return MenuType.StoreFrontInventoryMenu;
                 default:
-                    Console.WriteLine("Improper Input");
-                    Console.WriteLine("Press ENTER to continue");
+                    Console.WriteLine("========================");
+                    Console.WriteLine("Input was not correct");
+                    Console.WriteLine("Press ENTER to Continue");
+                    Console.WriteLine("========================");
                     Console.ReadLine();
                     return MenuType.ViewInventory;
             }

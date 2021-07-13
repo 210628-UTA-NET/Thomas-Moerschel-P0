@@ -18,7 +18,9 @@ namespace StoreAppUI
         {
             Console.WriteLine("==============================");
             Console.WriteLine("How would you like to search?");
-            Console.WriteLine("[3] Search by Name");
+            Console.WriteLine("==============================");
+            Console.WriteLine("[4] Search by Name");
+            Console.WriteLine("[3] Search by Phone Number");
             Console.WriteLine("[2] Search by Address");
             Console.WriteLine("[1] Search by Email");
             Console.WriteLine("==============================");
@@ -36,52 +38,84 @@ namespace StoreAppUI
                     return MenuType.CustomerMenu;
                 case "1":
                     Console.WriteLine("Please Enter Customer Email:");
+                    Console.WriteLine("-------------------------------------");
 
                     _newCustomer.Email = Console.ReadLine();
                     _newCustomer.Name =_customerBL.GetCustomer(_newCustomer).Name;
 
                     if (_newCustomer.Name == "Invalid Entry")
                     {
+                        Console.WriteLine("========================");
                         Console.WriteLine("Customer Not Found!");
+                        Console.WriteLine("Press ENTER to continue");
+                        Console.WriteLine("========================");
                         Console.ReadLine();
                     }
                     else
                     {
                         _newCustomer.Id = _customerBL.GetCustomer(_newCustomer).Id;
                         _newCustomer.Address = _customerBL.GetCustomer(_newCustomer).Address;
+                        _newCustomer.PhoneNumber = _customerBL.GetCustomer(_newCustomer).PhoneNumber;
+                        Console.Clear();
+                        Console.WriteLine("==============================");
+                        Console.WriteLine("Customer Found!");
+                        Console.WriteLine("==============================");
                         Console.WriteLine(_newCustomer);
+                        Console.WriteLine("==============================");
+                        Console.WriteLine("[0] Go Back");
                         Console.ReadLine();
-                        _newCustomer = new Customer();
+                        _newCustomer.Name = "";
+                        _newCustomer.Address = "";
+                        _newCustomer.Email = "";
+                        _newCustomer.PhoneNumber = "";
                     }
                     return MenuType.SearchCustomerMenu;
                     
                 case "2":
                     Console.WriteLine("Please Enter Customer Address:");
+                    Console.WriteLine("-------------------------------------");
                     _newCustomer.Address = Console.ReadLine();
                     _newCustomer.Name =_customerBL.GetCustomer(_newCustomer).Name;
 
                     if (_newCustomer.Name == "Invalid Entry")
                     {
+                        Console.WriteLine("========================");
                         Console.WriteLine("Customer Not Found!");
+                        Console.WriteLine("Press ENTER to continue");
+                        Console.WriteLine("========================");
                         Console.ReadLine();
                     }
                     else
                     {
                         _newCustomer.Id = _customerBL.GetCustomer(_newCustomer).Id;
                         _newCustomer.Email = _customerBL.GetCustomer(_newCustomer).Email;
+                        _newCustomer.PhoneNumber = _customerBL.GetCustomer(_newCustomer).PhoneNumber;
+                        Console.Clear();
+                        Console.WriteLine("==============================");
+                        Console.WriteLine("Customer Found!");
+                        Console.WriteLine("==============================");
                         Console.WriteLine(_newCustomer);
+                        Console.WriteLine("==============================");
+                        Console.WriteLine("Press ENTER to conitnue");
                         Console.ReadLine();
-                        _newCustomer = new Customer();
+                        _newCustomer.Name = "";
+                        _newCustomer.Address = "";
+                        _newCustomer.Email = "";
+                        _newCustomer.PhoneNumber = "";
                     }
                     return MenuType.SearchCustomerMenu;
                 case "3":
-                Console.WriteLine("Please Enter Customer Name:");
-                    _newCustomer.Name  = Console.ReadLine();
+                     Console.WriteLine("Please Enter Customer Phone Number:");
+                     Console.WriteLine("-------------------------------------");
+                    _newCustomer.PhoneNumber  = Console.ReadLine();
                     _newCustomer.Name =_customerBL.GetCustomer(_newCustomer).Name;
 
                     if (_newCustomer.Name == "Invalid Entry")
                     {
+                        Console.WriteLine("========================");
                         Console.WriteLine("Customer Not Found!");
+                        Console.WriteLine("Press ENTER to continue");
+                        Console.WriteLine("========================");
                         Console.ReadLine();
                     }
                     else
@@ -89,13 +123,62 @@ namespace StoreAppUI
                         _newCustomer.Id = _customerBL.GetCustomer(_newCustomer).Id;
                         _newCustomer.Address = _customerBL.GetCustomer(_newCustomer).Address;
                         _newCustomer.Email = _customerBL.GetCustomer(_newCustomer).Email;
+                        _newCustomer.PhoneNumber = _customerBL.GetCustomer(_newCustomer).PhoneNumber;
+                        Console.Clear();
+                        Console.WriteLine("==============================");
+                        Console.WriteLine("Customer Found!");
+                        Console.WriteLine("==============================");
                         Console.WriteLine(_newCustomer);
+                        Console.WriteLine("==============================");
+                        Console.WriteLine("Press ENTER to conitnue");
                         Console.ReadLine();
-                        _newCustomer = new Customer();
+                        _newCustomer.Name = "";
+                        _newCustomer.Address = "";
+                        _newCustomer.Email = "";
+                        _newCustomer.PhoneNumber = "";
+                    }
+                    return MenuType.SearchCustomerMenu;
+                case "4":
+                Console.WriteLine("Please Enter Customer Name:");
+                Console.WriteLine("-------------------------------------");
+                    _newCustomer.Name  = Console.ReadLine();
+                    _newCustomer.Name =_customerBL.GetCustomer(_newCustomer).Name;
+
+                    if (_newCustomer.Name == "Invalid Entry")
+                    {
+                        Console.WriteLine("========================");
+                        Console.WriteLine("Customer Not Found!");
+                        Console.WriteLine("Press ENTER to continue");
+                        Console.WriteLine("========================");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        _newCustomer.Id = _customerBL.GetCustomer(_newCustomer).Id;
+                        _newCustomer.Address = _customerBL.GetCustomer(_newCustomer).Address;
+                        _newCustomer.Email = _customerBL.GetCustomer(_newCustomer).Email;
+                        _newCustomer.PhoneNumber = _customerBL.GetCustomer(_newCustomer).PhoneNumber;
+                        Console.Clear();
+                        Console.WriteLine("==============================");
+                        Console.WriteLine("Customer Found!");
+                        Console.WriteLine("==============================");
+                        Console.WriteLine(_newCustomer);
+                        Console.WriteLine("==============================");
+                        Console.WriteLine("Press ENTER to conitnue");
+                        Console.ReadLine();
+                        _newCustomer.Name = "";
+                        _newCustomer.Address = "";
+                        _newCustomer.Email = "";
+                        _newCustomer.PhoneNumber = "";
                     }
                     return MenuType.SearchCustomerMenu;
                     
                 default:
+                    Console.WriteLine("========================");
+                    Console.WriteLine("Input was not correct");
+                    Console.WriteLine("Press ENTER to Continue");
+                    Console.WriteLine("========================");
+                    Console.ReadLine();
                     return MenuType.SearchCustomerMenu;
             }
         }

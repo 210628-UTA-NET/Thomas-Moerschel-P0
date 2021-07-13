@@ -9,6 +9,7 @@ namespace StoreAppModels
         public string Name {get; set; }
         public string Address {get; set; } 
         public string Email {get; set; }
+        public string PhoneNumber { get; set; }
         public List <LineItems> ListofOrders {get; set; }
 
         
@@ -16,7 +17,7 @@ namespace StoreAppModels
 
         public override string ToString()
         {
-            return $"Customer ID: {Id}\nName: {Name}\nAddress: {Address}\nEmail: {Email}";
+            return $"Customer ID: {Id}\nName: {Name}\nPhone Number: {PhoneNumber}\nAddress: {Address}\nEmail: {Email}";
         }
 
         }

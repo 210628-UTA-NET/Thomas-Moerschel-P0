@@ -22,6 +22,8 @@ namespace StoreAppUI
         CustomerCheckout,
         PurchaseConfirmation,
         SearchCustomerOrderHistory,
+        ManagerValidation,
+        AdministratorMenu,
         Exit
     }
     

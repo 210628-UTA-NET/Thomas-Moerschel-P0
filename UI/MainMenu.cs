@@ -40,8 +40,10 @@ namespace StoreAppUI
                     case "3":
                         return MenuType.CustomerFindStoreFrontMenu;
                     default:
+                        Console.WriteLine("========================");
                         Console.WriteLine("Input was not correct");
-                        Console.WriteLine("Please press ENTER to continue");
+                        Console.WriteLine("Press ENTER to Continue");
+                        Console.WriteLine("========================");
                         Console.ReadLine();
                         //Input was incorrect, remains in the main menu for further functionality
                         return MenuType.MainMenu;

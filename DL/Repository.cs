@@ -27,7 +27,8 @@ namespace StoreAppDL
             _context.Customers.Add(new DLEntities.Customer{
                 CustomerName = p_customer.Name,
                 CustomerAddress = p_customer.Address,
-                CustomerEmail = p_customer.Email
+                CustomerEmail = p_customer.Email,
+                CustomerPhoneNumber = p_customer.PhoneNumber,
             });
             _context.SaveChanges();
             return p_customer;
@@ -72,7 +73,8 @@ namespace StoreAppDL
                         Id = cust.CustomerId,
                         Name = cust.CustomerName,
                         Address = cust.CustomerAddress,
-                        Email = cust.CustomerEmail
+                        Email = cust.CustomerEmail,
+                        PhoneNumber = cust.CustomerPhoneNumber
                     }
             ).ToList();
         }
@@ -99,13 +101,15 @@ namespace StoreAppDL
                         Id = cust.CustomerId,
                         Name = cust.CustomerName,
                         Address = cust.CustomerAddress,
-                        Email = cust.CustomerEmail
+                        Email = cust.CustomerEmail,
+                        PhoneNumber = cust.CustomerPhoneNumber
                     }).ToList();
             foreach(StoreAppModels.Customer cust in customers)
             {
                 if (p_customer.Name == cust.Name) {return cust;}
                 else if (p_customer.Address == cust.Address) {return cust;}
-                else if (p_customer.Email == cust.Email) {return cust;}  
+                else if (p_customer.Email == cust.Email) {return cust;} 
+                else if (p_customer.PhoneNumber == cust.PhoneNumber){return cust;} 
             }
             p_customer.Name = "Invalid Entry";
             return p_customer;

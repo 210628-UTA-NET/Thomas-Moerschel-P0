@@ -41,6 +41,11 @@ namespace StoreAppUI
                     newStoreHistory.storeLocation(store);
                     return MenuType.StoreOrderHistory;
                 default:
+                    Console.WriteLine("========================");
+                    Console.WriteLine("Input was not correct");
+                    Console.WriteLine("Press ENTER to Continue");
+                    Console.WriteLine("========================");
+                    Console.ReadLine();
                     return MenuType.StoreFrontMenu;
             }
         }

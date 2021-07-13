@@ -20,14 +20,16 @@ namespace StoreAppUI
         public void Menu()
         {
             List <Orders> storeOrders = _OrderBL.GetOrders(store);
+            Console.WriteLine("==================================================");
             Console.WriteLine(store.Name + " Order History");
-            Console.WriteLine("=================================================");
+            Console.WriteLine("==================================================");
+            Console.WriteLine("--------------------------------------------------");
             foreach (Orders order in storeOrders)
             {
                 Console.WriteLine(order);
                 Console.WriteLine("--------------------------------------------------");
             }
-            Console.WriteLine("=================================================");
+            Console.WriteLine("==================================================");
             Console.WriteLine("[0] Go Back");
         }
 
@@ -39,8 +41,10 @@ namespace StoreAppUI
                 case "0":
                     return MenuType.StoreFrontMenu;
                 default:
-                    Console.WriteLine("Invalid input");
-                    Console.WriteLine("Press any key to continue");
+                    Console.WriteLine("========================");
+                    Console.WriteLine("Input was not correct");
+                    Console.WriteLine("Press ENTER to Continue");
+                    Console.WriteLine("========================");
                     Console.ReadLine();
                     return MenuType.StoreOrderHistory;
             }

@@ -14,7 +14,9 @@ namespace StoreAppUI
         {
             Console.WriteLine("=======================================================================");
             Console.WriteLine("Thank you " + customerPurchase.Name + " for your purchase!");
+            Console.WriteLine();
             Console.WriteLine("A Confirmation Email has been sent to: " + customerPurchase.Email);
+            Console.WriteLine();
             Console.WriteLine("The package will be delivered to:\n" + customerPurchase.Address);
             Console.WriteLine("=======================================================================");
             Console.WriteLine("[0] Return to Main Menu");

@@ -12,7 +12,7 @@ namespace StoreAppModels
 
         public override string ToString()
         {
-            return $"Name: {Name},\n Address: {Address}\n";
+            return $"Name: {Name},\n Address: {Address}";
         }
     }
 

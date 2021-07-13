@@ -19,6 +19,7 @@ namespace DLEntities
 
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<LineItem> LineItems { get; set; }
+        public virtual DbSet<ManagerCredential> ManagerCredentials { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<StoreFront> StoreFronts { get; set; }
@@ -47,6 +48,11 @@ namespace DLEntities
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("customerName");
+
+                entity.Property(e => e.CustomerPhoneNumber)
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("customerPhoneNumber");
             });
 
             modelBuilder.Entity<LineItem>(entity =>
@@ -85,6 +91,22 @@ namespace DLEntities
                     .HasConstraintName("lineitems_foreign_key1");
             });
 
+            modelBuilder.Entity<ManagerCredential>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.HasIndex(e => e.ManagerUserName, "UQ__ManagerC__93B337622D9B6F87")
+                    .IsUnique();
+
+                entity.Property(e => e.ManagerPassword)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ManagerUserName)
+                    .HasMaxLength(40)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.Property(e => e.OrderId).HasColumnName("orderId");
@@ -97,7 +119,7 @@ namespace DLEntities
                     .HasColumnName("orderLocation");
 
                 entity.Property(e => e.OrderPrice)
-                    .HasColumnType("decimal(5, 2)")
+                    .HasColumnType("decimal(10, 2)")
                     .HasColumnName("orderPrice");
 
                 entity.Property(e => e.StoreId).HasColumnName("storeId");
@@ -128,7 +150,7 @@ namespace DLEntities
                     .HasColumnName("productName");
 
                 entity.Property(e => e.ProductPrice)
-                    .HasColumnType("decimal(5, 2)")
+                    .HasColumnType("decimal(10, 2)")
                     .HasColumnName("productPrice");
 
                 entity.Property(e => e.StoreId).HasColumnName("storeId");
@@ -137,7 +159,7 @@ namespace DLEntities
             modelBuilder.Entity<StoreFront>(entity =>
             {
                 entity.HasKey(e => e.StoreId)
-                    .HasName("PK__StoreFro__1EA716130CBB319B");
+                    .HasName("PK__StoreFro__1EA7161320073C7D");
 
                 entity.ToTable("StoreFront");
 

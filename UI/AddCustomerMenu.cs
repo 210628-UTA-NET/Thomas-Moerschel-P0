@@ -18,8 +18,9 @@ namespace StoreAppUI
         public void Menu()
         {
             Console.WriteLine("=======================================");
-            Console.WriteLine("[4] Name: " + _newCustomer.Name);
-            Console.WriteLine("[3] Address: "+ _newCustomer.Address);
+            Console.WriteLine("[5] Name: " + _newCustomer.Name);
+            Console.WriteLine("[4] Address: "+ _newCustomer.Address);
+            Console.WriteLine("[3] Phone Number: "+ _newCustomer.PhoneNumber);
             Console.WriteLine("[2] Email: "+_newCustomer.Email);
             Console.WriteLine("[1] Add Customer");
             Console.WriteLine("=======================================");
@@ -40,32 +41,40 @@ namespace StoreAppUI
                     //adds _newCustomer to the _customerBL after case 2,3 and 4 have executed
                     _customerBL.AddCustomer(_newCustomer);
                     //clears the template to add a new customer after it is admitted
-                    _newCustomer.Name = "";
-                    _newCustomer.Address = "";
-                    _newCustomer.Email = "";
+                    _newCustomer = new Customer();
                     //returns the menu type to the main that dictates to return to the Add or retrieve customer menu
                     return MenuType.CustomerMenu;
                 case "2":
-                    Console.WriteLine("Customer Email:");
+                    Console.WriteLine("Input Customer Email:");
+                    Console.WriteLine("----------------------------");
                     //changes _newCustomer Email object parameter to user input
                     _newCustomer.Email = Console.ReadLine();
-                    //returns menu type to the main that dictates to remain within this addCustomer menu
+                    
                     return MenuType.AddCustomerMenu;
                 case "3":
-                    Console.WriteLine("Customer Address:");
+                    Console.WriteLine("Input Customer Phone Number:");
+                    Console.WriteLine("----------------------------");
+                    _newCustomer.PhoneNumber = Console.ReadLine();
+                    return MenuType.AddCustomerMenu;
+                case "4":
+                    Console.WriteLine("Input Customer Address:");
+                    Console.WriteLine("----------------------------");
                     //changes _new Customer Address object parameter to user input
                     _newCustomer.Address = Console.ReadLine();
                     //returns menu type to the main that dictates to remain within this addCustomer menu
                     return MenuType.AddCustomerMenu;
-                case "4":
-                    Console.WriteLine("Customer Name:");
+                case "5":
+                    Console.WriteLine("Input Customer Name:");
+                    Console.WriteLine("----------------------------");
                     //changes _newCustomer Name object parameter to user input
                     _newCustomer.Name = Console.ReadLine();
                     //returns menu type to the main that dictates to remain within this addCustomer menu
                     return MenuType.AddCustomerMenu;
                 default:
+                    Console.WriteLine("========================");
                     Console.WriteLine("Input was not correct");
-                    Console.WriteLine("Press Enter to Continue");
+                    Console.WriteLine("Press ENTER to Continue");
+                    Console.WriteLine("========================");
                     Console.ReadLine();
                     //returns menu type to the main that dictates to remain within this addCustomer menu
                     return MenuType.AddCustomerMenu;

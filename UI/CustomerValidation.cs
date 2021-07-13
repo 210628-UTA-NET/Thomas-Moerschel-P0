@@ -42,6 +42,7 @@ namespace StoreAppUI
                 case "1":
                     List <Customer> customers = _customerBL.GetAllCustomers();
                     Console.WriteLine("Please Input your full name:");
+                    Console.WriteLine("--------------------------------");
                     string tempName = Console.ReadLine();
                     foreach (Customer cust in customers)
                     {
@@ -52,26 +53,40 @@ namespace StoreAppUI
                             return MenuType.MakeAnOrder; //pass over customer information
                         }
                     }
+                    Console.WriteLine("==========================================");
                     Console.WriteLine("Name not found, try adding a new customer");
-                    Console.WriteLine("Press any Key to Continue");
+                    Console.WriteLine("Press ENTER to Continue");
+                    Console.WriteLine("==========================================");
                     Console.ReadLine();
                         return MenuType.CustomerValidation;
                 case "2":
                     Customer newCustomer = new Customer();
                     Console.Clear();
                     Console.WriteLine("Please Input your Full Name");
+                    Console.WriteLine("--------------------------------");
                     string customerName = Console.ReadLine();
                     newCustomer.Name = customerName;
+                    Console.WriteLine("Please Input your Phone Number");
+                    Console.WriteLine("--------------------------------");
+                    string customerPhoneNumber = Console.ReadLine();
+                    newCustomer.PhoneNumber = customerPhoneNumber;
                     Console.WriteLine("Please input your Email");
+                    Console.WriteLine("--------------------------------");
                     string customerEmail = Console.ReadLine();
                     newCustomer.Email = customerEmail;
                     Console.WriteLine("Please Input your Address");
+                    Console.WriteLine("--------------------------------");
                     string customerAddress = Console.ReadLine();
                     newCustomer.Address = customerAddress;
                     _customerBL.AddCustomer(newCustomer);
                     newOrder.storeLocation(store);
                         return MenuType.CustomerValidation;
                 default:
+                    Console.WriteLine("========================");
+                    Console.WriteLine("Input was not correct");
+                    Console.WriteLine("Press ENTER to Continue");
+                    Console.WriteLine("========================");
+                    Console.ReadLine();
                     return MenuType.CustomerValidation;
 
             }

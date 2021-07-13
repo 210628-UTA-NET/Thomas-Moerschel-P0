@@ -27,18 +27,21 @@ namespace StoreAppUI
         }
         public void Menu()
         {
+            Console.WriteLine("===============================================");
             Console.WriteLine(storeCheckout.Name + " Checkout!");
-            Console.WriteLine("==========================================");
+            Console.WriteLine("===============================================");
             Console.WriteLine("Items in Cart:");
-            Console.WriteLine("---------------------");
+            Console.WriteLine("---------------------------");
             foreach (LineItems item in checkoutCart)
             {
                 Console.WriteLine(item);
-                Console.WriteLine("---------------------");
+                Console.WriteLine("-----------------------");
             }
-            Console.WriteLine("Total Price: $" + price);
+            double totalPrice = Math.Round(price, 2, MidpointRounding.AwayFromZero);
+            Console.WriteLine("Total Price: $" + totalPrice);
+            Console.WriteLine("===============================================");
             Console.WriteLine("What would you like to do?");
-            Console.WriteLine("==========================================");
+            Console.WriteLine("===============================================");
             Console.WriteLine("[1] Complete Purchase");
             Console.WriteLine("[0] Cancel Order and Return to Main Menu");
         }

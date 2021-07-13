@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PTOqEyldWXIARV7nKeADUscA47vtn1aBpsXQTZZ6nzHHjYHUzZV5B63UqvXHIlxJhKX3YdKcWLky9bnbtHrQSg==",
+  "dgSpecHash": "X6ZYb3F6CfAFoBRtCtgVmlPTR1jZ4Hvj/nYcheEwN8kbhiW+YFFC/n2zgFycPEmo64JyavKaswfebTdDwS0KtQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\UI\\UI.csproj",
+  "projectFilePath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\ui\\UI.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Electric_Recon\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

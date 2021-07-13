@@ -39,6 +39,11 @@ namespace StoreAppUI
                     viewLocation.storeLocation(store);
                     return MenuType.ViewInventory;
                 default:
+                    Console.WriteLine("========================");
+                    Console.WriteLine("Input was not correct");
+                    Console.WriteLine("Press ENTER to Continue");
+                    Console.WriteLine("========================");
+                    Console.ReadLine();
                     return MenuType.StoreFrontInventoryMenu;
             }
         }

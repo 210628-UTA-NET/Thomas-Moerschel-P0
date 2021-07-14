@@ -20,6 +20,7 @@ namespace StoreAppUI
         }
         public void Menu()
         {
+            double totalSpent = 0.00;
             List <Orders> orderHistory = _OrderBL.GetOrders(customerOrderHistory);
             Console.WriteLine("==================================================");
             Console.WriteLine(customerOrderHistory.Name + "'s Order History");
@@ -27,9 +28,11 @@ namespace StoreAppUI
             Console.WriteLine("--------------------------------------------------");
             foreach (Orders order in orderHistory)
             {
+                totalSpent += order.Price;
                 Console.WriteLine(order);
                 Console.WriteLine("--------------------------------------------------");
             }
+            Console.WriteLine("                     Total Money Spent: $" + Math.Round(totalSpent, 2, MidpointRounding.AwayFromZero));
             Console.WriteLine("==================================================");
             Console.WriteLine("[0] Go Back");
         }

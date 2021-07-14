@@ -36,7 +36,7 @@ namespace StoreAppUI
             foreach (LineItems item in checkoutCart)
             {
                 Console.WriteLine(item);
-                Console.WriteLine("-----------------------");
+                Console.WriteLine("---------------------------");
             }
             double totalPrice = Math.Round(price, 2, MidpointRounding.AwayFromZero);
             Console.WriteLine("Total Price: $" + totalPrice);

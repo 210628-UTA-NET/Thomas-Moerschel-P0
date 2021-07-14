@@ -10,7 +10,8 @@ namespace StoreAppUI
         private IInventory _InventoryBL;
         private IOrderBL _OrderBL;
         public CustomerCheckout(){}
-        public CustomerCheckout(IInventory p_InventoryBL, IOrderBL p_OrderBL){
+        public CustomerCheckout(IInventory p_InventoryBL, IOrderBL p_OrderBL)
+        {
             _InventoryBL = p_InventoryBL;
             _OrderBL = p_OrderBL;
         }
@@ -63,8 +64,7 @@ namespace StoreAppUI
                     Orders newOrder = new Orders();
                     newOrder.Price = price;
                     _OrderBL.AddOrder(storeCheckout, customerCheckout, newOrder);
-                    newConfirmation.customerInformation(customerCheckout);
-                    checkoutCart.Clear();
+                    newConfirmation.customerInformation(customerCheckout, checkoutCart, price);
                     return MenuType.PurchaseConfirmation;
                 default:
                     return MenuType.CustomerCheckout;

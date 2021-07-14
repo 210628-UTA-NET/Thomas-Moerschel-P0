@@ -1,6 +1,5 @@
 using System;
 using StoreAppModels;
-
 namespace StoreAppUI
 {
     public class StoreFrontMenu : IMenu
@@ -21,7 +20,6 @@ namespace StoreAppUI
             Console.WriteLine("=====================================================");
             Console.WriteLine("[0] Go Back");
         }
-
         public MenuType UserInput()
         {
             StoreFrontInventoryMenu location = new StoreFrontInventoryMenu();

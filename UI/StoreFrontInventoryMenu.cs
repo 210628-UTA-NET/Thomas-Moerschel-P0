@@ -21,13 +21,11 @@ namespace StoreAppUI
             Console.WriteLine("=========================================================================");
             Console.WriteLine("[0] Go Back");
         }
-
         public MenuType UserInput()
         {
             string userInput = Console.ReadLine();
             ViewInventory viewLocation = new ViewInventory();
             AddInventory addLocation = new AddInventory();
-
             switch (userInput)
             {
                 case "0":

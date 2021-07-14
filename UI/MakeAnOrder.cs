@@ -54,10 +54,7 @@ namespace StoreAppUI
                     }
                 }
             }
-            Console.WriteLine("===================================================================");
-            Console.WriteLine("[0] Go Back");
         }
-
         public MenuType UserInput()
         {
             List<LineItems> lineItems = _InventoryBL.GetInventory(shoppingStoreFront);
@@ -116,7 +113,6 @@ namespace StoreAppUI
                         cart.Add(item);   
                     }
                 } 
-                
             }
             if (count == 0)
             {
@@ -159,12 +155,7 @@ namespace StoreAppUI
                 case "2":
 
                     return MenuType.MakeAnOrder;
-
             }
-
-
-
-           
             return MenuType.MakeAnOrder;
         }
     }

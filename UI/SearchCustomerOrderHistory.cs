@@ -18,7 +18,6 @@ namespace StoreAppUI
             SearchCustomerMenu newCustomerMenu = new SearchCustomerMenu();
             newCustomerMenu.Menu();
         }
-
         public MenuType UserInput()
         {
             SearchCustomerMenu newCustomerMenu = new SearchCustomerMenu();
@@ -53,7 +52,6 @@ namespace StoreAppUI
                         newOrderHistory.customerInformation(_newCustomer);
                     }
                     return MenuType.CustomerOrderHistory;
-                    
                 case "2":
                     Console.WriteLine("Please Enter Customer Address:");
                     Console.WriteLine("-------------------------------------");
@@ -125,7 +123,6 @@ namespace StoreAppUI
                         newOrderHistory.customerInformation(_newCustomer);
                     }
                     return MenuType.CustomerOrderHistory;
-                    
                 default:
                     Console.WriteLine("========================");
                     Console.WriteLine("Input was not correct");

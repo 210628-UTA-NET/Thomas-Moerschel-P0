@@ -32,7 +32,6 @@ namespace StoreAppUI
             Console.WriteLine("==================================================");
             Console.WriteLine("[0] Go Back");
         }
-
         public MenuType UserInput()
         {
             string userInput = Console.ReadLine();

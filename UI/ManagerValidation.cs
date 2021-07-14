@@ -9,11 +9,9 @@ namespace StoreAppUI
             Console.WriteLine("Please Input Your Username: ");
             Console.WriteLine("Please Input Your Password: ");
         }
-
         public MenuType UserInput()
         {
             string userInput = Console.ReadLine();
-            
             return MenuType.AdministratorMenu;
         }
     }

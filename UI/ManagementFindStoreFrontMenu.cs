@@ -11,7 +11,6 @@ namespace StoreAppUI
         public ManagementFindStoreFrontMenu(IStoreFrontBL p_storeFrontBL){
             _storeFrontBL = p_storeFrontBL;
         }
-        //Create StoreFront Object with Location Parameters based on what the user chooses
         public void Menu()
         {
            List<StoreFront> storeFronts = _storeFrontBL.GetAllStoreFronts();
@@ -28,7 +27,6 @@ namespace StoreAppUI
             Console.WriteLine("=========================================================");
             Console.WriteLine("[0] Go Back");
         }
-
         public MenuType UserInput()
         {
             StoreFrontMenu location = new StoreFrontMenu();

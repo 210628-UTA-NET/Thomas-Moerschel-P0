@@ -13,7 +13,6 @@ namespace StoreAppUI
         public void storeLocation(StoreFront p_storeFront){
             store = p_storeFront;
         }
-
         public CustomerValidation(ICustomerBL p_customerBL) 
         {
             _customerBL = p_customerBL;
@@ -22,13 +21,12 @@ namespace StoreAppUI
         {
             Console.WriteLine("==================================================");
             Console.WriteLine("Welcome to " + store.Name);
-            Console.WriteLine("Customer Login");
+            Console.WriteLine("Customer Sign-up or Login");
             Console.WriteLine("==================================================");
             Console.WriteLine("[2] Customer Sign Up");
             Console.WriteLine("[1] Customer Login");
             Console.WriteLine("==================================================");
             Console.WriteLine("[0] Go Back");
-        
         }
 
         public MenuType UserInput()
@@ -38,7 +36,7 @@ namespace StoreAppUI
             switch (userInput)
             {
                 case "0":
-                    return MenuType.MainMenu;
+                    return MenuType.CustomerFindStoreFrontMenu;
                 case "1":
                     List <Customer> customers = _customerBL.GetAllCustomers();
                     Console.WriteLine("Please Input your full name:");
@@ -50,7 +48,7 @@ namespace StoreAppUI
                         {
                             newOrder.storeLocation(store);
                             newOrder.customerInformation(cust);
-                            return MenuType.MakeAnOrder; //pass over customer information
+                            return MenuType.MakeAnOrder; 
                         }
                     }
                     Console.WriteLine("==========================================");

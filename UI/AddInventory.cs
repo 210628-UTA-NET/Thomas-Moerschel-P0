@@ -36,7 +36,6 @@ namespace StoreAppUI
             Console.WriteLine("=====================================================");
             Console.WriteLine("[0] Go Back");
         }
-
         public MenuType UserInput()
         {
             List<LineItems> lineItems = _InventoryBL.GetInventory(store);
@@ -76,7 +75,6 @@ namespace StoreAppUI
                     Console.ReadLine();
                     return MenuType.AddInventory;
             }  
-           
         }
     }
 }

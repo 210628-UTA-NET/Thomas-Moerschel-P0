@@ -11,7 +11,6 @@ namespace DLEntities
         {
             Orders = new HashSet<Order>();
         }
-
         public int StoreId { get; set; }
         public string StoreName { get; set; }
         public string StoreAddress { get; set; }

@@ -20,6 +20,6 @@ namespace StoreAppModels
             return $"Customer ID: {Id}\nName: {Name}\nPhone Number: {PhoneNumber}\nAddress: {Address}\nEmail: {Email}";
         }
 
-        }
+    }
   
 }

@@ -10,7 +10,6 @@ using StoreAppModels;
 
 namespace StoreAppDL
 {
-    
     public class Repository : IRepository
     {
          DLEntities.FirstDatabaseContext _context = new DLEntities.FirstDatabaseContext();
@@ -18,10 +17,6 @@ namespace StoreAppDL
         {
             _context = p_context;
         }
-        
-        
-        
-        //Called within the BL from _rep, a repository field variable, takes in customer object
         public StoreAppModels.Customer AddCustomer(StoreAppModels.Customer p_customer)
         {
             _context.Customers.Add(new DLEntities.Customer{
@@ -118,7 +113,6 @@ namespace StoreAppDL
 
         public List<LineItems> GetInventory(StoreAppModels.StoreFront p_storeFront)
         {
-
             List<LineItems> totalInventory = _context.LineItems.Select(
                 inv=>
                     new LineItems

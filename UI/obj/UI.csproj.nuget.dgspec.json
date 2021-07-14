@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\ui\\UI.csproj": {}
+    "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\UI\\UI.csproj": {}
   },
   "projects": {
     "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\BL\\BL.csproj": {
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -143,7 +143,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -200,18 +200,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\ui\\UI.csproj": {
+    "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\UI\\UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\ui\\UI.csproj",
+        "projectUniqueName": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\UI\\UI.csproj",
         "projectName": "UI",
-        "projectPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\ui\\UI.csproj",
+        "projectPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\UI\\UI.csproj",
         "packagesPath": "C:\\Users\\Electric_Recon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\ui\\obj\\",
+        "outputPath": "C:\\Users\\Electric_Recon\\source\\repos\\Revature\\Core C#\\Thomas-Moerschel-P0\\UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -277,7 +277,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

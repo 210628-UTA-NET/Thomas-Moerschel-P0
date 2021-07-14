@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using StoreAppBL;
 using StoreAppModels;
-
 namespace StoreAppUI
 {
     public class SearchCustomerMenu : IMenu
@@ -27,7 +26,6 @@ namespace StoreAppUI
             Console.WriteLine("[0] Go Back");
             
         }
-
         public MenuType UserInput()
         {
             string userInput = Console.ReadLine();
@@ -139,8 +137,8 @@ namespace StoreAppUI
                     }
                     return MenuType.SearchCustomerMenu;
                 case "4":
-                Console.WriteLine("Please Enter Customer Name:");
-                Console.WriteLine("-------------------------------------");
+                    Console.WriteLine("Please Enter Customer Name:");
+                    Console.WriteLine("-------------------------------------");
                     _newCustomer.Name  = Console.ReadLine();
                     _newCustomer.Name =_customerBL.GetCustomer(_newCustomer).Name;
 
@@ -172,7 +170,6 @@ namespace StoreAppUI
                         _newCustomer.PhoneNumber = "";
                     }
                     return MenuType.SearchCustomerMenu;
-                    
                 default:
                     Console.WriteLine("========================");
                     Console.WriteLine("Input was not correct");

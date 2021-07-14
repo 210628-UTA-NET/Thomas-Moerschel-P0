@@ -19,8 +19,5 @@ namespace StoreAppDL
          List<Orders> GetOrders(StoreFront p_storeFront);
          List<Orders> GetOrders(Customer p_customer);
          Orders AddOrder(StoreFront p_storeFront, Customer p_customer, Orders p_order);
-
-        
-
     }
 }

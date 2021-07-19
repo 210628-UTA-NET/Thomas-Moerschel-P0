@@ -7,10 +7,10 @@ namespace StoreAppUI
 {
     public class ViewInventory : IMenu
     {
-        private IInventory _InventoryBL;
+        private IInventoryBL _InventoryBL;
         public static StoreFront store = new StoreFront();
         public ViewInventory(){}
-        public ViewInventory(IInventory p_InventoryBL)
+        public ViewInventory(IInventoryBL p_InventoryBL)
         {
             _InventoryBL = p_InventoryBL;
         }

@@ -4,7 +4,7 @@ using StoreAppModels;
 
 namespace StoreAppBL
 {
-    public interface IInventory
+    public interface IInventoryBL
     {
          List<LineItems> GetInventory(StoreFront p_storeFront);
          LineItems AddInventory(LineItems p_lineItems, int quantity);

@@ -5,7 +5,7 @@ using StoreAppModels;
 
 namespace StoreAppBL
 {
-    public class InventoryBL : IInventory
+    public class InventoryBL : IInventoryBL
     {   
         private IRepository _repo;
         public InventoryBL(IRepository p_repo)

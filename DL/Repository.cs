@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using DLEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using StoreAppModels;
@@ -12,93 +11,55 @@ namespace StoreAppDL
 {
     public class Repository : IRepository
     {
-         DLEntities.FirstDatabaseContext _context = new DLEntities.FirstDatabaseContext();
-        public Repository(DLEntities.FirstDatabaseContext p_context)
+        private StoreAppDBContext _context;
+        public Repository(StoreAppDBContext p_context)
         {
             _context = p_context;
         }
-        public StoreAppModels.Customer AddCustomer(StoreAppModels.Customer p_customer)
+        public Customer AddCustomer(Customer p_customer)
         {
-            _context.Customers.Add(new DLEntities.Customer{
-                CustomerName = p_customer.Name,
-                CustomerAddress = p_customer.Address,
-                CustomerEmail = p_customer.Email,
-                CustomerPhoneNumber = p_customer.PhoneNumber,
-            });
+            _context.Customers.Add(p_customer);
             _context.SaveChanges();
             return p_customer;
         }
 
         public LineItems AddInventory(LineItems p_lineItems, int quantity)
         {
-            var data = _context.LineItems.Where(x=>x.LineItemId == p_lineItems.Id ||x.LineItemIdName ==p_lineItems.Product).FirstOrDefault();
-            _context.LineItems.Remove(data); 
-            DLEntities.LineItem lineItem = new DLEntities.LineItem()
+            var lineItem = _context.LineItems.Select(item => item).ToList();
+            foreach (LineItems item in lineItem)
             {
-                LineItemId = data.LineItemId,
-                LineItemIdName = data.LineItemIdName,
-                LineItemQuantity = data.LineItemQuantity + quantity,
-                StoreId = data.StoreId,
-                OrderId = data.OrderId,
-                ProductId = data.ProductId
-            };
-             _context.LineItems.Add(lineItem);
+                if (item == p_lineItems)
+                {
+                    p_lineItems.Quantity = quantity;
+                    _context.LineItems.Remove(item);
+                    _context.Add(p_lineItems);
+                }
+            }
              _context.SaveChanges();
              return p_lineItems;                         
         }
 
         public Orders AddOrder(StoreAppModels.StoreFront p_storeFront, StoreAppModels.Customer p_customer, Orders p_order)
         {
-            _context.Orders.Add(new DLEntities.Order{
-                CustomerId = p_customer.Id,
-                StoreId = p_storeFront.Id,
-                OrderPrice = (decimal?)p_order.Price,
-                OrderLocation = p_storeFront.Address,
-            });
+            //may need more specification
+            _context.Orders.Add(p_order);
             _context.SaveChanges();
             return p_order;
         }
 
-        public List<StoreAppModels.Customer> GetAllCustomers()
+        public List<Customer> GetAllCustomers()
         {
-            return _context.Customers.Select(
-                cust =>
-                    new StoreAppModels.Customer()
-                    {
-                        Id = cust.CustomerId,
-                        Name = cust.CustomerName,
-                        Address = cust.CustomerAddress,
-                        Email = cust.CustomerEmail,
-                        PhoneNumber = cust.CustomerPhoneNumber
-                    }
-            ).ToList();
+            return _context.Customers.Select(cust => cust).ToList();
         }
 
-        public List<StoreAppModels.StoreFront> GetAllStoreFronts()
+        public List<StoreFront> GetAllStoreFronts()
         {
-            return _context.StoreFronts.Select(
-                store =>
-                    new StoreAppModels.StoreFront()
-                    {
-                        Id = store.StoreId,
-                        Name = store.StoreName,
-                        Address = store.StoreAddress,
-                    }
-            ).ToList();
+            return _context.StoreFronts.Select(store => store).ToList();
         }
 
         public StoreAppModels.Customer GetCustomer(StoreAppModels.Customer p_customer)
         {
-            List<StoreAppModels.Customer> customers = _context.Customers.Select(
-                cust=>
-                    new StoreAppModels.Customer
-                    {
-                        Id = cust.CustomerId,
-                        Name = cust.CustomerName,
-                        Address = cust.CustomerAddress,
-                        Email = cust.CustomerEmail,
-                        PhoneNumber = cust.CustomerPhoneNumber
-                    }).ToList();
+            List<StoreAppModels.Customer> customers = _context.Customers.Select(cust=> cust).ToList();
             foreach(StoreAppModels.Customer cust in customers)
             {
                 if (p_customer.Name == cust.Name) {return cust;}
@@ -114,15 +75,7 @@ namespace StoreAppDL
         public List<LineItems> GetInventory(StoreAppModels.StoreFront p_storeFront)
         {
             List<LineItems> totalInventory = _context.LineItems.Select(
-                inv=>
-                    new LineItems
-                    {
-                        storeId = (int)inv.StoreId,
-                        Id = inv.LineItemId,
-                        Product = inv.LineItemIdName,
-                        Quantity = (int)inv.LineItemQuantity,
-
-                    }).ToList();
+                inv=> inv).ToList();
             List<LineItems> storeInventory = new List<LineItems>();
             foreach (LineItems inv in totalInventory )
             {
@@ -134,13 +87,7 @@ namespace StoreAppDL
         public List<Orders> GetOrders(StoreAppModels.StoreFront p_storeFront)
         {
             List<Orders> allOrders = _context.Orders.Select(
-                Ord=>
-                    new Orders
-                    {
-                        StoreId = (int)Ord.StoreId,
-                        CustomerId = (int)Ord.CustomerId,
-                        Price = (double)Ord.OrderPrice,
-                    }).ToList();
+                Ord=> Ord).ToList();
             List<Orders> storeOrders = new List<Orders>();
             foreach (Orders order in allOrders)
             {
@@ -152,13 +99,7 @@ namespace StoreAppDL
         public List<Orders> GetOrders(StoreAppModels.Customer p_customer)
         {
             List<Orders> allOrders = _context.Orders.Select(
-                Ord=>
-                    new Orders
-                    {
-                        StoreId = (int)Ord.StoreId,
-                        CustomerId = (int)Ord.CustomerId,
-                        Price = (double)Ord.OrderPrice,
-                    }).ToList();
+                Ord=> Ord).ToList();
             List<Orders> customerOrders = new List<Orders>();
             foreach(Orders order in allOrders)
             {
@@ -170,15 +111,7 @@ namespace StoreAppDL
         public List<Products> GetProducts(StoreAppModels.StoreFront p_storeFront)
         {
             List<Products> totalProducts = _context.Products.Select(
-                pro=>
-                    new Products
-                    {
-                        StoreId = (int)pro.StoreId,
-                        ProductId = pro.ProductId,
-                        Name = pro.ProductName,
-                        Price = (double)pro.ProductPrice,
-                        Category = pro.ProductCategory
-                    }).ToList();
+                pro=>pro).ToList();
             List<Products> storeProducts = new List<Products>();
             foreach (Products pro in totalProducts)
             {

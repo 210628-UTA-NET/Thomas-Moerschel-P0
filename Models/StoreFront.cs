@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace StoreAppModels
 {
@@ -7,8 +8,8 @@ namespace StoreAppModels
         public int Id { get; set; }
         public string Name {get; set; }
         public string Address {get; set; }
-        public string [] Inventory {get; set; }
-        public string [] ListofOrders {get; set; }
+        public List<Orders> Orders { get; set; }
+        public List<LineItems> LineItems { get; set; }
         
         public override string ToString()
         {

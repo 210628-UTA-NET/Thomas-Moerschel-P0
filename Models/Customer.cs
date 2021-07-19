@@ -10,7 +10,7 @@ namespace StoreAppModels
         public string Address {get; set; } 
         public string Email {get; set; }
         public string PhoneNumber { get; set; }
-        public List <LineItems> ListofOrders {get; set; }
+        public List <Orders> Orders { get; set; }
 
         
         //overrides default string function allowing you to output object parameters:: otherwise you receive "namespace.class"

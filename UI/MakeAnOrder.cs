@@ -8,10 +8,10 @@ namespace StoreAppUI
 {
     public class MakeAnOrder : IMenu
     {
-        private IInventory _InventoryBL;
+        private IInventoryBL _InventoryBL;
         private IProductsBL _ProductsBL;
         public MakeAnOrder(){}
-        public MakeAnOrder(IInventory p_InventoryBL, IProductsBL p_IProductsBL)
+        public MakeAnOrder(IInventoryBL p_InventoryBL, IProductsBL p_IProductsBL)
         {
             _InventoryBL = p_InventoryBL;
             _ProductsBL = p_IProductsBL;

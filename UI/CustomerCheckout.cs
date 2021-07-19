@@ -7,10 +7,10 @@ namespace StoreAppUI
 {
     public class CustomerCheckout : IMenu
     {
-        private IInventory _InventoryBL;
+        private IInventoryBL _InventoryBL;
         private IOrderBL _OrderBL;
         public CustomerCheckout(){}
-        public CustomerCheckout(IInventory p_InventoryBL, IOrderBL p_OrderBL)
+        public CustomerCheckout(IInventoryBL p_InventoryBL, IOrderBL p_OrderBL)
         {
             _InventoryBL = p_InventoryBL;
             _OrderBL = p_OrderBL;

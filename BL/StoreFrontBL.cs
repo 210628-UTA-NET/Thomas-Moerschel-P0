@@ -16,9 +16,6 @@ namespace StoreAppBL
             return _repo.GetAllStoreFronts();
         }
 
-        public StoreFront GetInventory(StoreFront p_storeFront)
-        {
-            throw new System.NotImplementedException();
-        }
+     
     }
 }

@@ -14,10 +14,10 @@ namespace StoreAppDL
          Customer AddCustomer(Customer p_customer);
          List<StoreFront> GetAllStoreFronts();
          LineItems AddInventory(LineItems p_lineItems, int quantity);
-         List<LineItems> GetInventory(StoreFront p_storeFront);
-         List<Products> GetProducts(StoreFront p_storeFront);
+         List<LineItems> GetInventory(int p_id);
+         List<Products> GetProducts(int storeID);
          List<Orders> GetOrders(StoreFront p_storeFront);
          List<Orders> GetOrders(Customer p_customer);
-         Orders AddOrder(StoreFront p_storeFront, Customer p_customer, Orders p_order);
+         Orders AddOrder(int storeID, int customerID, Orders p_order);
     }
 }

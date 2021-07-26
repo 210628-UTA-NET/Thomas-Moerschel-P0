@@ -12,9 +12,9 @@ namespace StoreAppBL
         {
             _repo = p_repo;
         }
-        public List<Products> GetProducts(StoreFront p_storeFront)
+        public List<Products> GetProducts(int storeID)
         {
-            return _repo.GetProducts(p_storeFront);
+            return _repo.GetProducts(storeID);
         }
     }
 }

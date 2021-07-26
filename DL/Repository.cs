@@ -28,9 +28,10 @@ namespace StoreAppDL
             var lineItem = _context.LineItems.Select(item => item).ToList();
             foreach (LineItems item in lineItem)
             {
-                if (item == p_lineItems)
+                if (item.Product == p_lineItems.Product)
                 {
-                    p_lineItems.Quantity = quantity;
+                    Console.WriteLine("Inventory Success");
+                    p_lineItems.Quantity = item.Quantity + quantity;
                     _context.LineItems.Remove(item);
                     _context.Add(p_lineItems);
                 }
@@ -39,9 +40,10 @@ namespace StoreAppDL
              return p_lineItems;                         
         }
 
-        public Orders AddOrder(StoreAppModels.StoreFront p_storeFront, StoreAppModels.Customer p_customer, Orders p_order)
+        public Orders AddOrder(int storeID, int customerID, Orders p_order)
         {
-            //may need more specification
+            p_order.StoreId = storeID;
+            p_order.CustomerId = customerID;
             _context.Orders.Add(p_order);
             _context.SaveChanges();
             return p_order;
@@ -57,34 +59,34 @@ namespace StoreAppDL
             return _context.StoreFronts.Select(store => store).ToList();
         }
 
-        public StoreAppModels.Customer GetCustomer(StoreAppModels.Customer p_customer)
+        public Customer GetCustomer(Customer p_customer)
         {
-            List<StoreAppModels.Customer> customers = _context.Customers.Select(cust=> cust).ToList();
-            foreach(StoreAppModels.Customer cust in customers)
+            List<Customer> customers = _context.Customers.Select(cust=> cust).ToList();
+            foreach(Customer cust in customers)
             {
-                if (p_customer.Name == cust.Name) {return cust;}
-                else if (p_customer.Address == cust.Address) {return cust;}
-                else if (p_customer.Email == cust.Email) {return cust;} 
-                else if (p_customer.PhoneNumber == cust.PhoneNumber){return cust;} 
+                if (p_customer.Name == cust.Name && p_customer.Password == cust.Password) {return cust;}
+                else if (p_customer.Address == cust.Address && p_customer.Password == cust.Password) {return cust;}
+                else if (p_customer.Email == cust.Email && p_customer.Password == cust.Password) {Console.WriteLine("Match Found");return cust;} 
+                else if (p_customer.PhoneNumber == cust.PhoneNumber && p_customer.Password == cust.Password){return cust;} 
             }
             p_customer.Name = "Invalid Entry";
             return p_customer;
 
         }
 
-        public List<LineItems> GetInventory(StoreAppModels.StoreFront p_storeFront)
+        public List<LineItems> GetInventory(int p_id)
         {
             List<LineItems> totalInventory = _context.LineItems.Select(
                 inv=> inv).ToList();
             List<LineItems> storeInventory = new List<LineItems>();
             foreach (LineItems inv in totalInventory )
             {
-                if (inv.storeId == p_storeFront.Id){storeInventory.Add(inv);}
+                if (inv.storeId == p_id){storeInventory.Add(inv);}
             }
             return storeInventory;
         }
 
-        public List<Orders> GetOrders(StoreAppModels.StoreFront p_storeFront)
+        public List<Orders> GetOrders(StoreFront p_storeFront)
         {
             List<Orders> allOrders = _context.Orders.Select(
                 Ord=> Ord).ToList();
@@ -96,7 +98,7 @@ namespace StoreAppDL
             return storeOrders;
         }
 
-        public List<Orders> GetOrders(StoreAppModels.Customer p_customer)
+        public List<Orders> GetOrders(Customer p_customer)
         {
             List<Orders> allOrders = _context.Orders.Select(
                 Ord=> Ord).ToList();
@@ -108,14 +110,14 @@ namespace StoreAppDL
             return customerOrders;
         }
 
-        public List<Products> GetProducts(StoreAppModels.StoreFront p_storeFront)
+        public List<Products> GetProducts(int storeId)
         {
             List<Products> totalProducts = _context.Products.Select(
                 pro=>pro).ToList();
             List<Products> storeProducts = new List<Products>();
             foreach (Products pro in totalProducts)
             {
-                if (pro.StoreId ==p_storeFront.Id){storeProducts.Add(pro);}
+                if (pro.StoreId == storeId){storeProducts.Add(pro);}
             }
             return storeProducts;
         }

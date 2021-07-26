@@ -6,7 +6,7 @@ namespace StoreAppBL
 {
     public interface IInventoryBL
     {
-         List<LineItems> GetInventory(StoreFront p_storeFront);
+         List<LineItems> GetInventory(int p_id);
          LineItems AddInventory(LineItems p_lineItems, int quantity);
     }
 }

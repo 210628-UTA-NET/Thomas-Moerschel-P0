@@ -8,6 +8,6 @@ namespace StoreAppBL
     {
          List<Orders> GetOrders(StoreFront p_storeFront);
          List<Orders> GetOrders(Customer p_customer);
-         Orders AddOrder(StoreFront p_storeFront, Customer p_customer, Orders order);
+         Orders AddOrder(int storeID, int customerID, Orders order);
     }
 }

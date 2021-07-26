@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppWebUI", "StoreAppWebUI\StoreAppWebUI.csproj", "{BAF72692-AD5C-43D8-81DA-AE55271D413D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{4BDEBD29-8192-454C-8B65-356FAAD380FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DL", "DL\DL.csproj", "{F6DA9EF6-82D1-4D29-8600-4125EEBF8777}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{E75A7B28-D9CC-4FBC-A526-987CF7A1B1DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAWebUI", "SAWebUI\SAWebUI.csproj", "{9761A385-337F-4F67-AFC4-8CBDF841D557}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,5 +72,17 @@ Global
 		{E75A7B28-D9CC-4FBC-A526-987CF7A1B1DE}.Release|x64.Build.0 = Release|Any CPU
 		{E75A7B28-D9CC-4FBC-A526-987CF7A1B1DE}.Release|x86.ActiveCfg = Release|Any CPU
 		{E75A7B28-D9CC-4FBC-A526-987CF7A1B1DE}.Release|x86.Build.0 = Release|Any CPU
+		{9761A385-337F-4F67-AFC4-8CBDF841D557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9761A385-337F-4F67-AFC4-8CBDF841D557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9761A385-337F-4F67-AFC4-8CBDF841D557}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9761A385-337F-4F67-AFC4-8CBDF841D557}.Debug|x64.Build.0 = Debug|Any CPU
+		{9761A385-337F-4F67-AFC4-8CBDF841D557}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9761A385-337F-4F67-AFC4-8CBDF841D557}.Debug|x86.Build.0 = Debug|Any CPU
+		{9761A385-337F-4F67-AFC4-8CBDF841D557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9761A385-337F-4F67-AFC4-8CBDF841D557}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9761A385-337F-4F67-AFC4-8CBDF841D557}.Release|x64.ActiveCfg = Release|Any CPU
+		{9761A385-337F-4F67-AFC4-8CBDF841D557}.Release|x64.Build.0 = Release|Any CPU
+		{9761A385-337F-4F67-AFC4-8CBDF841D557}.Release|x86.ActiveCfg = Release|Any CPU
+		{9761A385-337F-4F67-AFC4-8CBDF841D557}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -4,8 +4,8 @@ namespace StoreAppModels
 {
     public class LineItems
     {
-        public int storeId { get; set; }
         public int Id { get; set; }
+        public int storeId {get; set;}
         public string Product {get; set; }
         public int Quantity {get; set; }
         

@@ -17,9 +17,9 @@ namespace StoreAppBL
             return _repo.AddInventory(p_lineItems, quantity);
         }
 
-        public List<LineItems> GetInventory(StoreFront p_storeFront)
+        public List<LineItems> GetInventory(int p_id)
         {
-            return _repo.GetInventory(p_storeFront);
+            return _repo.GetInventory(p_id);
         }
     }
 }

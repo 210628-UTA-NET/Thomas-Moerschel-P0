@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<SAWebUI.Models.CustomerVM>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +9,12 @@
     <h1>List of Customers:</h1>
     <!-- bootstrap styling for button (autoincluded in VCM) -->
     <a type="button" class="btn btn-secondary" asp-action = "Add">Add Customer</a>
-
+    <a type="button" class="btn btn-secondary" asp-action = "StoreFrontMenu">Switch to StoreFront Menu</a>
+    @using (Html.BeginForm("Index", "Customer", FormMethod.Post))
+    {
+        <input id= "search" type = "text" name = "custName">
+        <button type = "submit">Search</button>
+    }
     <table class ="table table-striped table-hover">
         <thead>
             <tr>
@@ -30,9 +34,12 @@
                     <td>@Html.DisplayFor(custItem => item.Address)</td>
                     <td>@Html.DisplayFor(custItem => item.Email)</td>
                     <td>@Html.DisplayFor(custItem => item.PhoneNumber)</td>
+                    <td><a type = "button" class = "btn btn-secondary" @Html.ActionLink("View Order History", "ViewCustomerOrderHistory", new {p_customerID = item.Id})/></td>
                 </tr>
             }
         </tbody>
     </table>
+    <a asp-controller = "Home" asp-action="ManagerLogin" class = "btn btn-danger" style ="position:relative; top:10px;">Logout</a>
 </body>
+
 </html>

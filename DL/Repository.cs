@@ -31,9 +31,9 @@ namespace StoreAppDL
                 if (item.Product == p_lineItems.Product)
                 {
                     Console.WriteLine("Inventory Success");
-                    p_lineItems.Quantity = item.Quantity + quantity;
-                    _context.LineItems.Remove(item);
-                    _context.Add(p_lineItems);
+                    item.Quantity = item.Quantity + quantity;
+                    _context.LineItems.Update(item);
+                    
                 }
             }
              _context.SaveChanges();
@@ -47,6 +47,21 @@ namespace StoreAppDL
             _context.Orders.Add(p_order);
             _context.SaveChanges();
             return p_order;
+        }
+
+        public Orders GetOrders(int p_customerID, double price)
+        {
+            List <Orders> orders = _context.Orders.Select(ord=>ord).ToList();
+            foreach(Orders ord in orders)
+            {
+                if (ord.CustomerId == p_customerID && ord.Price == price)
+                {
+                    return ord;
+                }
+            }
+            Orders newOrder = new Orders();
+            newOrder.Id = -5;
+            return newOrder;
         }
 
         public List<Customer> GetAllCustomers()
@@ -86,14 +101,14 @@ namespace StoreAppDL
             return storeInventory;
         }
 
-        public List<Orders> GetOrders(StoreFront p_storeFront)
+        public List<Orders> GetOrders(int p_storeFront)
         {
             List<Orders> allOrders = _context.Orders.Select(
                 Ord=> Ord).ToList();
             List<Orders> storeOrders = new List<Orders>();
             foreach (Orders order in allOrders)
             {
-                if (order.StoreId == p_storeFront.Id){storeOrders.Add(order);}
+                if (order.StoreId == p_storeFront){storeOrders.Add(order);}
             }
             return storeOrders;
         }

@@ -13,7 +13,8 @@ namespace SAWebUI.Models
             Name = p_cust.Name;
             Address = p_cust.Address;
             PhoneNumber = p_cust.PhoneNumber;
-            Email = p_cust.Email;        
+            Email = p_cust.Email; 
+            Manager = p_cust.Manager;       
         }
         public int Id { get; set; }
        
@@ -26,6 +27,7 @@ namespace SAWebUI.Models
         public string PhoneNumber { get; set; }
         
         public string Password {get; set; }
+        public int Manager { get; set; }
        
 
     }

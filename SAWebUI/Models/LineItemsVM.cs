@@ -12,6 +12,7 @@ namespace SAWebUI.Models
             Product = p_item.Product;
             Quantity = p_item.Quantity;
             storeID = p_item.storeId;
+            ProductsId = p_item.ProductsId;
         }
         public int Id { get; set; }
         public int storeID {get; set;}

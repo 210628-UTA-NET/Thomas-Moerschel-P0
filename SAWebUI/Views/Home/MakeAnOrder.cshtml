@@ -1,21 +1,28 @@
-@model SAWebUI.Models.OrdersVM
-<h1>Order Details</h1>
+@model IList<SAWebUI.Models.LineItemsVM>
+<h1>Order Details:</h1>
 <table class ="table table-striped table-hover">
-    <thead>
+        <thead>
             <tr>
-                <th>ID</th>
-                <th>Store ID</th>
-                <th>Customer ID</th>
-                <th>Price</th>
+                <th>Id</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th></th>
             </tr>
-    </thead>
+        </thead>
         <tbody>
+            @for(int x = 0; x < Model.Count; x++)
+            {
                 <tr>
-                    <td>@Html.DisplayFor(Orders => Model.Id)</td>
-                    <td>@Html.DisplayFor(Orders => Model.StoreId)</td>
-                    <td>@Html.DisplayFor(Orders => Model.CustomerId)</td>
-                    <td>@Html.DisplayFor(Orders => Model.Price)</td>
+                    <td>@Html.DisplayFor(LineItem => Model[x].Id)</td>
+                    <td>@Html.DisplayFor(LineItem => Model[x].Product)</td>
+                    <td>@Html.DisplayFor(LineItem => Model[x].Quantity)</td>
                 </tr>
+            }
             
+
         </tbody>
-</table>
+    </table>
+    <div>
+    <h4>Order Total: $@TempData["Price"]</h4>
+    </div>
+    <a asp-action="Index" class = "btn btn-danger" style ="position:relative; top:10px;">Cancel Order and Log Out</a>

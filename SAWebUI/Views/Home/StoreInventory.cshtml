@@ -17,16 +17,29 @@
                     <td>@Html.DisplayFor(LineItem => Model[x].Product)</td>
                     <td>@Html.DisplayFor(LineItem => Model[x].Quantity)</td>
                     <td>
-                        <form asp-action = "StoreInventory">
-		                <input asp-for= "@Model[x].Quantity" size = "4" type="number" class="input" value="1" style = "width:60px"/>
-                        <input asp-for= "@Model[x].Id" type = "hidden" value = "@Model[x].Id"/>
-                        <input asp-for= "@Model[x].Product" type = "hidden" value = "@Model[x].Product"/>
-                        <input asp-for= "@Model[x].storeID" type = "hidden" value = "@Model[x].storeID"/>
-		                <button type = "submit" class = "btn btn-secondary">Add to Cart</button>
-                        </form>
+                        @using (Html.BeginForm("StoreInventory", "Home", FormMethod.Post))
+                        {
+                           <input name = "cartItem.Quantity" size = "4" type = "number" class = "input" value = "1" style = "width:60px"/>
+                           <input name = "cartItem.Product" type = "hidden" value = "@Model[x].Product">
+                           <input name = "cartItem.Id" type = "hidden" value = "@Model[x].Id">
+                           <input name = "cartItem.storeId" type = "hidden" value = "@Model[x].storeID">
+                           <input name = "_customerID" type = "hidden" value = @ViewBag.custID>
+                           <button type = "submit" class = "btn btn-secondary"> Add to Cart </button>
+                        }
                        
                     </td>
                 </tr>
             }
+
         </tbody>
     </table>
+    <div>
+    @using (Html.BeginForm("MakeAnOrder", "Home", FormMethod.Post))
+            {
+            <input name = "p_id" type = "hidden" value = @TempData["stoID"]>
+            <input name = "p_customerID" type = "hidden" value = @ViewBag.custID>
+            <button type = "submit" class = "btn btn-success">Complete Purchase</button>
+            }
+
+            <button asp-action = "Index" class = "btn btn-danger">Cancel Order and Logout</button>
+    </div>

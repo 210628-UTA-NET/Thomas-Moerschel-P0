@@ -16,8 +16,9 @@ namespace StoreAppDL
          LineItems AddInventory(LineItems p_lineItems, int quantity);
          List<LineItems> GetInventory(int p_id);
          List<Products> GetProducts(int storeID);
-         List<Orders> GetOrders(StoreFront p_storeFront);
+         List<Orders> GetOrders(int p_storeFront);
          List<Orders> GetOrders(Customer p_customer);
          Orders AddOrder(int storeID, int customerID, Orders p_order);
+         Orders GetOrders(int p_customerID, double price);
     }
 }

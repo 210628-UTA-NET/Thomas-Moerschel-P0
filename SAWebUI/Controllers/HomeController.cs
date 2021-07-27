@@ -1,15 +1,5 @@
-﻿//   To Do:
-// [IMPORTANT]
-//1. Manager Portal (mimic customer login -- nest in bottom corner)
-//2. Customer Management 
-//   2a. Search Customer (search bar at top- bootstrap)
-//   2b. View Customer History (button that views order history)
-//3. Storefront Management
-//   3a. View Inventory Items
-//   3b. Add Inventory Item (product conflicts)
-//   3c. View StoreFronts (3c and 3d should be done first)
-//   3d. Add StoreFront
-//   3e. View Store Order History (Same as Customer)
+﻿//CLEAN UP
+//clear cart
 //4. Logging 
 //5. Unit Testing (May take a while, follow Stephen's tutorial from Friday) --20 of them-- DB methods tested Data shoudl persist
 //6. Exception Handling 
@@ -52,6 +42,7 @@ namespace SAWebUI.Controllers
         private IInventoryBL _invBL;
         private IProductsBL _proBL;
         private IOrderBL _ordBL;
+        public static List <LineItemsVM> cart = new List<LineItemsVM>();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger, ICustomerBL p_custBL, IStoreFrontBL p_storeBL, IInventoryBL p_invBL, IProductsBL p_proBL, IOrderBL p_ordBL)
@@ -68,19 +59,40 @@ namespace SAWebUI.Controllers
         {
             return View();
         }
+        public IActionResult ManagerMenu()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
             return View();
         }
-        public IActionResult MakeAnOrder(List<LineItemsVM> p_items, int customerID)
+        public IActionResult ManagerLogin()
         {
-                //get order from customerID and price, remove items
-                //add price as a dependency in repo
-                //get LineItems with the same orderID// set that up in repo
-                //in html, display Order Price at bottom, list of items, and "confirm purchase button", then take that to a IActionResult OrderConfirmationScreen
-                // if they cancel the order remove the order from the database (easy)
             return View();
+        }
+        public IActionResult MakeAnOrder(int p_id, int p_customerID)
+        {
+            Console.WriteLine("Store ID: " + p_id + " Customer ID: " + p_customerID);
+            var prod = _proBL.GetProducts(p_id)
+                        .Select(pro => new ProductsVM(pro))
+                        .ToList();
+            Orders newOrder = new Orders();
+            foreach (ProductsVM pro in prod)
+            {
+                foreach (LineItemsVM item in cart)
+                {
+                    if (item.Product == pro.Name)
+                    {
+                        newOrder.Price += (pro.Price * item.Quantity);
+                    }
+                }
+            }
+            _ordBL.AddOrder(p_id, p_customerID, newOrder);
+            TempData["Price"] = newOrder.Price;
+            Console.WriteLine("Order Total: " + newOrder.Price);
+            return View(cart);
         }
         public IActionResult Add()
         {
@@ -89,7 +101,8 @@ namespace SAWebUI.Controllers
         }
         public IActionResult StoreFrontMenu(int customerID)
         {
-            TempData["custID"] = customerID;
+            Console.WriteLine("Customer ID StoreFront:" + customerID);
+            ViewBag.customerID = customerID;
             return View(
                 _storeBL.GetAllStoreFronts()
                 .Select(store => new StoreFrontVM(store))
@@ -98,12 +111,45 @@ namespace SAWebUI.Controllers
         }
         public IActionResult StoreInventory(int p_id, int p_customerID)
         {
+            Console.WriteLine("Store Inventory ID: " + p_customerID);
             ViewBag.custID = p_customerID;
             return View(
                 _invBL.GetInventory(p_id)
                 .Select(inv => new LineItemsVM(inv))
                 .ToList()
             );
+        }
+        [HttpPost]
+        public IActionResult ManagerLogin(CustomerVM managerLogin)
+        {
+             try
+            {
+                if (ModelState.IsValid)
+                {
+                    var test = _custBL.GetCustomer(new Customer
+                            {
+                            Name = managerLogin.Name,
+                            Address = managerLogin.Address,
+                            PhoneNumber = managerLogin.PhoneNumber,
+                            Email = managerLogin.Email,
+                            Password = managerLogin.Password,
+                            Manager = managerLogin.Manager,
+                            }
+                        );
+                    Console.WriteLine(test.Manager);
+                    if (test.Name == "Invalid Entry" || test.Manager == 0)
+                    {
+                        Console.WriteLine("Customer Not Found");
+                        return RedirectToAction(nameof(ManagerLogin));
+                    }
+                    else{return RedirectToAction("Index", "Customer");}
+                }
+            }
+            catch (Exception)
+            {
+                return View();
+            }
+            return View();
         }
         [HttpPost]
         public IActionResult Add(CustomerVM custVM)
@@ -145,6 +191,7 @@ namespace SAWebUI.Controllers
                             PhoneNumber = custVM.PhoneNumber,
                             Email = custVM.Email,
                             Password = custVM.Password,
+                            Id = custVM.Id,
                             }
                         );
                     Console.WriteLine(test.Name);
@@ -153,7 +200,7 @@ namespace SAWebUI.Controllers
                         Console.WriteLine("Customer Not Found");
                         return RedirectToAction(nameof(Index));
                     }
-                    else{return RedirectToAction("StoreFrontMenu", "Home", new {customerID = test.Id});}
+                    else{Console.WriteLine("Customer ID Recorded: " +test.Id);return RedirectToAction("StoreFrontMenu", "Home", new {customerID = test.Id});}
                 }
             }
             catch (Exception)
@@ -163,41 +210,43 @@ namespace SAWebUI.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult StoreInventory(List<LineItemsVM> p_list, int p_customerID)
+        public IActionResult StoreInventory(LineItemsVM cartItem, int _customerID)
         {
-            //add order here 
-            List<Products> products  = _proBL.GetProducts(p_list[0].storeID);
-            Orders order = new Orders();
-            string _customerID = TempData["custID"].ToString();
-            p_customerID = Int32.Parse(_customerID);
-            Console.WriteLine("Inventory customer ID: " + p_customerID + "length of list " + p_list.Count);
-            //works for 1 product, validate and subtract from inventory using addinventory(-quantiy ) 
-            foreach (LineItemsVM item in p_list)
+            ViewBag.custID = _customerID;
+            TempData["stoID"] = cartItem.storeID;
+            int itemAmount = 0;
+            bool found = false;
+            if (cart.Count > 0)
             {
-                string Quantity = item.Quantity.ToString();
-                Quantity = "-" + Quantity;
-                _invBL.AddInventory(new LineItems
+                for (int i = 0; i<cart.Count; i++)
                 {
-                    Product = item.Product,
-                    Id = item.Id,
-                    storeId = item.storeID
-                }, Int32.Parse(Quantity));
-                //ADD PRODUCTID IN REPO TO GRAB -- LINK IT IN DB
-                foreach (Products prod in products)
-                {
-                    if (prod.Id == item.ProductsId)
+                    if (cart[i].Product == cartItem.Product)
                     {
-                        order.Price += (prod.Price * item.Quantity);
-                        //make definition for store ID make sure it reflects in database
-                        order.storeId= item.storeID;
-                        order.CustomerId = p_customerID;
+                        Console.WriteLine("Found similar");
+                        cart[i].Quantity += cartItem.Quantity;
+                        found = true;
                     }
                 }
-                
+                if (found == false)
+                {
+                    cart.Add(cartItem);
+                }
             }
-            //make sure order reflects in database 
-            _ordBL.AddOrder(p_list[0].storeID, p_customerID, order);
-            return RedirectToAction("MakeAnOrder", "Home", new {p_items = p_list, customerID = p_customerID});
+            else {
+                cart.Add(cartItem);
+            }
+            itemAmount = cartItem.Quantity - (cartItem.Quantity * 2);
+            _invBL.AddInventory(new LineItems
+                {
+                    Id = cartItem.Id,
+                    Quantity = cartItem.Quantity,
+                    Product = cartItem.Product,
+                    storeId = cartItem.storeID,
+                }
+                , itemAmount);
+            Console.WriteLine("This ID here is: " + cartItem.storeID);
+            Console.WriteLine(cart.Count + " Cart size");
+            return RedirectToAction("StoreInventory", "Home", new {p_id = cartItem.storeID, p_customerID = _customerID});
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

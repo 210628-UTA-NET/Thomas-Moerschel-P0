@@ -107,12 +107,9 @@ namespace SAWebUI.Controllers
             return View(searchCustomer);
         }
         [HttpPost]
-        public IActionResult StoreInventory(List<LineItemsVM> p_list)
+        public IActionResult StoreInventory(LineItemsVM item)
         {
-            int storeID =0;
-           foreach (LineItemsVM item in p_list)
-           {
-               storeID = item.storeID;
+               int storeID = item.storeID;
                _invBL.AddInventory(new LineItems
                 {
                     ProductsId = item.ProductsId,
@@ -120,7 +117,7 @@ namespace SAWebUI.Controllers
                     Id = item.Id,
                     storeId = item.storeID,
                 }, item.Quantity);
-           }
+           
             return RedirectToAction("StoreInventory", "Customer", new{p_storeID = storeID});
         }
         [HttpPost]

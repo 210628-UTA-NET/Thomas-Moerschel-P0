@@ -38,8 +38,12 @@
             {
             <input name = "p_id" type = "hidden" value = @TempData["stoID"]>
             <input name = "p_customerID" type = "hidden" value = @ViewBag.custID>
-            <button type = "submit" class = "btn btn-success">Complete Purchase</button>
+            <button type = "submit" class = "btn btn-success">Continue to Checkout</button>
             }
-
-            <button asp-action = "Index" class = "btn btn-danger">Cancel Order and Logout</button>
+    @using (Html.BeginForm("StoreInventory", "Home", FormMethod.Post))
+            {
+            <input name = "cancelOrder" type = "hidden" value = "OrderCancelled">
+            <input name = "_customerID" type = "hidden" value = @ViewBag.custID>
+            <button type = "submit" class = "btn btn-danger">Cancel Order</button>
+            }
     </div>

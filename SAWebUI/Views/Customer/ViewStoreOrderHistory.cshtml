@@ -20,13 +20,13 @@
       {
             <input name = "sortOrder" value = "orders_Asc" type = "hidden">
             <input name = "p_storeID" value = @ViewBag.storeID type = "hidden">
-            <button type = "submit">Sort by Price Ascending @ViewBag.storeID</button>
+            <button type = "submit">Sort by Price Ascending</button>
       }
     @using (Html.BeginForm("ViewStoreOrderHistory", "Customer", FormMethod.Post))       
       {
             <input name = "sortOrder" value = "orders_Desc" type = "hidden">
             <input name = "p_storeID" value = @ViewBag.storeID type = "hidden">
-            <button type = "submit">Sort by Price Descending @ViewBag.storeID</button>
+            <button type = "submit">Sort by Price Descending </button>
       }</th>
             </tr>
         </thead>

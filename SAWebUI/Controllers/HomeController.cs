@@ -72,8 +72,14 @@ namespace SAWebUI.Controllers
         {
             return View();
         }
+        public IActionResult OrderThanks()
+        {
+            return View();
+        }
         public IActionResult MakeAnOrder(int p_id, int p_customerID)
         {
+            TempData["stoID"] = p_id;
+            ViewBag.custID = p_customerID;
             Console.WriteLine("Store ID: " + p_id + " Customer ID: " + p_customerID);
             var prod = _proBL.GetProducts(p_id)
                         .Select(pro => new ProductsVM(pro))
@@ -89,7 +95,6 @@ namespace SAWebUI.Controllers
                     }
                 }
             }
-            _ordBL.AddOrder(p_id, p_customerID, newOrder);
             TempData["Price"] = newOrder.Price;
             Console.WriteLine("Order Total: " + newOrder.Price);
             return View(cart);
@@ -118,6 +123,50 @@ namespace SAWebUI.Controllers
                 .Select(inv => new LineItemsVM(inv))
                 .ToList()
             );
+        }
+        [HttpPost]
+        public IActionResult MakeAnOrder(int p_id, int p_customerID, string cancelOrder)
+        {
+            Console.WriteLine("We Made it here!");
+            if (cancelOrder == "OrderCancelled")
+            {
+                Console.WriteLine("Order Cancelled");
+                foreach (LineItemsVM items in cart)
+                {
+                    _invBL.AddInventory(new LineItems
+                    {
+                        Id = items.Id,
+                        Quantity = items.Quantity,
+                        Product = items.Product,
+                        storeId = items.storeID,
+                    }, items.Quantity);
+                }
+                cart.Clear();
+                return RedirectToAction(nameof(Index));
+            }
+            else if (cancelOrder == "Checkout")
+            {
+                Orders newOrder = new Orders();
+                var prod = _proBL.GetProducts(p_id)
+                        .Select(pro => new ProductsVM(pro))
+                        .ToList();
+                foreach (ProductsVM pro in prod)
+                {
+                    foreach (LineItemsVM item in cart)
+                    {
+                    if (item.Product == pro.Name)
+                        {
+                        newOrder.Price += (pro.Price * item.Quantity);
+                        }
+                    }
+                }
+            _ordBL.AddOrder(p_id, p_customerID, newOrder);
+            cart.Clear();
+            return RedirectToAction(nameof(OrderThanks));
+            }
+            else{
+                return RedirectToAction("MakeAnOrder", "Home", new {p_id = p_id, p_customerID = p_customerID});
+            }
         }
         [HttpPost]
         public IActionResult ManagerLogin(CustomerVM managerLogin)
@@ -210,8 +259,25 @@ namespace SAWebUI.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult StoreInventory(LineItemsVM cartItem, int _customerID)
+        public IActionResult StoreInventory(LineItemsVM cartItem, int _customerID, string cancelOrder)
         {
+            if (cancelOrder == "OrderCancelled")
+            {
+                Console.WriteLine("Order Has Been Cancelled!!!");
+                foreach (LineItemsVM items in cart)
+                {
+                    _invBL.AddInventory(new LineItems
+                    {
+                        Id = items.Id,
+                        Quantity = items.Quantity,
+                        Product = items.Product,
+                        storeId = items.storeID,
+                    }, items.Quantity);
+                }
+                cart.Clear();
+                return RedirectToAction(nameof(Index));
+            }
+            else{
             ViewBag.custID = _customerID;
             TempData["stoID"] = cartItem.storeID;
             int itemAmount = 0;
@@ -247,6 +313,7 @@ namespace SAWebUI.Controllers
             Console.WriteLine("This ID here is: " + cartItem.storeID);
             Console.WriteLine(cart.Count + " Cart size");
             return RedirectToAction("StoreInventory", "Home", new {p_id = cartItem.storeID, p_customerID = _customerID});
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
